@@ -75,7 +75,6 @@ ul {
 }
 
 .navbar .navbar-brand img {
-  /* width: 6.25rem; */
   width: 4.25rem;
   border-radius: 50%;
 }
@@ -85,7 +84,6 @@ ul {
 }
 
 .navbar .search .search-icon {
-  /* color: var(--black-color); */
   color: var(--white-color);
 }
 
@@ -99,6 +97,8 @@ ul {
   -ms-border-radius: 0;
   -o-border-radius: 0;
   width: 300px;
+  font-size: 15px;
+  border-radius: 5px;
 }
 
 @media (max-width: 767px) {

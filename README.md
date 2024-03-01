@@ -1,6 +1,8 @@
-<!-- favicon -->
-<!-- font awsome file not work i add link -->
+# Technology City
 
-# Te
+<br>
 
-https://safeya-yasien.github.io/Tech-City/
+Electronics store<br>
+Tech-City<br><hr><br>
+
+https://safeya-yasien.github.io/Technology-City/
