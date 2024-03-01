@@ -1,0 +1,298 @@
+/* font-family: "Trade Winds", system-ui; */
+/* logo */
+/* font-family: "Train One", system-ui; */
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+:root {
+  --main-color: #0c202d;
+  --white-color: #fff;
+  --black-color: #000;
+  --hover-color: #0091ff;
+  --main-transition: 0.3s;
+}
+
+.special-title {
+  margin-bottom: 70px;
+  text-align: center;
+  position: relative;
+}
+
+.special-title h4 {
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 10px;
+  font-family: "Trade Winds", system-ui;
+  margin-bottom: 0;
+}
+
+.special-title img {
+  width: 50px;
+  position: absolute;
+  top: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+body {
+  height: 3000px;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+/* navbar */
+.navbar {
+  /* background-color: var(--main-color); */
+  /* background-color: #796C5C; */
+  background-color: #0c202d;
+  border-bottom: 2px solid var(--white-color);
+  top: 0;
+  z-index: 150;
+}
+
+.navbar .container-fluid {
+  justify-content: flex-start;
+}
+
+.navbar .navbar-brand {
+  margin-right: 1.25rem;
+}
+
+@media (max-width: 767px) {
+  .navbar .navbar-brand {
+    margin-right: 0;
+  }
+}
+
+.navbar .navbar-brand img {
+  /* width: 6.25rem; */
+  width: 4.25rem;
+  border-radius: 50%;
+}
+
+.navbar .search {
+  display: flex;
+}
+
+.navbar .search .search-icon {
+  /* color: var(--black-color); */
+  color: var(--white-color);
+}
+
+.navbar .search input {
+  outline: none;
+  border: none;
+  box-shadow: none;
+  border-radius: 0;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  -ms-border-radius: 0;
+  -o-border-radius: 0;
+  width: 300px;
+}
+
+@media (max-width: 767px) {
+  .navbar .search {
+    display: none;
+  }
+}
+
+.navbar .user-icons {
+  margin-left: auto;
+}
+
+.navbar .user-icons .lang {
+  margin-right: 10px;
+  color: var(--white-color);
+}
+
+.navbar .user-icons a {
+  color: var(--white-color);
+  padding: 0 10px;
+}
+
+.navbar .user-icons .user {
+  transition: var(--main-transition);
+  -webkit-transition: var(--main-transition);
+  -moz-transition: var(--main-transition);
+  -ms-transition: var(--main-transition);
+  -o-transition: var(--main-transition);
+}
+
+.navbar .user-icons .user:hover {
+  color: var(--hover-color);
+}
+
+.navbar i {
+  cursor: pointer;
+}
+
+/*  */
+.navbar-links {
+  background-color: var(--black-color);
+  top: 96.34px;
+
+  border-bottom: none;
+  z-index: 100;
+  min-height: 50px;
+}
+
+.navbar-links .navbar-nav {
+  margin: 0 auto;
+  gap: 12.5rem;
+}
+
+@media (max-width: 991px) {
+  .navbar-links .navbar-nav {
+    flex-direction: row;
+    justify-content: space-evenly;
+    gap: 0;
+  }
+}
+
+.collapse:not(.show) {
+  display: block;
+}
+
+.navbar-links .navbar-nav a {
+  color: var(--white-color);
+}
+
+.navbar-links .navbar-nav a.active,
+.navbar-links .navbar-nav a:hover {
+  color: var(--hover-color);
+}
+
+/* landing */
+.landing {
+  background-image: url(../imgs/landing.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100vh;
+  top: 146.94px;
+}
+
+@media (max-width: 767px) {
+  .landing {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 0;
+  }
+}
+
+.landing::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.landing img {
+  width: 170px;
+}
+
+.landing .site-title {
+  color: var(--white-color);
+}
+
+.landing .site-title h1,
+.landing .site-title h3,
+.landing .site-title p {
+  margin-bottom: 20px;
+}
+
+.landing .site-title h1 {
+  font-family: "Train One", system-ui;
+  font-size: 80px;
+}
+
+@media (max-width: 767px) {
+  .landing .site-title h1 {
+    font-size: 50px;
+  }
+}
+
+.landing .site-title h3 {
+  font-family: "Trade Winds", system-ui;
+  margin-bottom: 20px;
+}
+
+.landing .site-title button {
+  font-weight: bold;
+
+  background-color: var(--main-color);
+  color: var(--white-color);
+
+  border-radius: 70px;
+}
+
+.landing .site-title button:hover {
+  outline: none;
+  color: var(--hover-color);
+}
+
+/* products */
+.products {
+  margin-top: 100px;
+  padding-top: 120px;
+  padding-bottom: 150px;
+}
+
+@media (max-width: 767px) {
+  .products {
+    margin-top: 60px;
+    padding-top: 0;
+  }
+}
+
+.products {
+}
+
+.products .products-category {
+  background-color: gray;
+  padding: 20px;
+}
+
+.products .products-category img {
+  width: 80px;
+}
+
+.products .products-category a {
+  padding: 10px 0;
+  display: block;
+  margin-bottom: 0;
+  color: var(--black-color);
+}
+
+@media (max-width: 767px) {
+  .products .products-category .row > div:not(:last-child) {
+    margin-bottom: 20px;
+    border-bottom: 1px solid black;
+  }
+}
+
+.products {
+}
+
+.products {
+}
+
+.products {
+}
+
+.products {
+}
