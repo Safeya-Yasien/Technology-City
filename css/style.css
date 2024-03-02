@@ -313,6 +313,12 @@ ul {
   box-shadow: 0 0 10px 0;
 }
 
+@media (max-width: 767px) {
+  .contact form {
+    width: 100%;
+  }
+}
+
 .contact form input,
 .contact form textarea {
   display: block;
