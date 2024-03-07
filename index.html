@@ -67,8 +67,8 @@
           <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
               <a class="nav-link active" aria-current="page" href="#">Home</a>
-              <a class="nav-link" href="#">Products</a>
-              <a class="nav-link" href="#">Contact</a>
+              <a class="nav-link" href="#products">Products</a>
+              <a class="nav-link" href="#contact">Contact</a>
             </div>
           </div>
         </div>
@@ -133,14 +133,14 @@
         </div>
       </div>
 
-      <div class="products">
+      <div class="products" id="products">
         <div class="container">
           <div class="products-content">
             <!-- <div class="row">
               <div class="col-lg-4 col-md-6 box">
                 <div class="product-header">
                   <h2>product name</h2>
-                  <p>product description</p>
+                  <p onclick='revalHiddenOverflow(this)'>product description </p>
                 </div>
 
                 <img src="" />
@@ -166,18 +166,79 @@
         </div>
       </div>
 
-      <div class="contact">
-        <div class="container">
-          <form>
-            <p>Direct Message</p>
+      <div class="contact" id="contact">
+        <div class="container contact-zindex">
+          <div class="row position-relative">
+            <div class="special-title">
+              <h4>Contact</h4>
+              <img src="imgs/special-heading.png" alt="special-heading" />
+            </div>
+          </div>
 
-            <input type="text" placeholder="Full Name" />
-            <input type="text" placeholder="Phone" />
-            <input type="text" placeholder="Email" />
-            <textarea placeholder="Message"></textarea>
-
-            <button>Submit</button>
-          </form>
+          <div class="row">
+            <div class="col-lg-10 m-auto">
+              <div class="row">
+                <div class="col-lg-6 col-md-6">
+                  <form>
+                    <div class="form-group mix">
+                      <p><i class="fa fa-user"></i> Your First Name</p>
+                      <input
+                        type="text"
+                        class="form-control"
+                        placeholder="Ex. Mahmoud"
+                      />
+                    </div>
+                  </form>
+                </div>
+                <div class="col-lg-6 col-md-6">
+                  <form>
+                    <div class="form-group mix">
+                      <p><i class="fa fa-user"></i> Your First Name</p>
+                      <input
+                        type="text"
+                        class="form-control"
+                        placeholder="Ex. Mahmoud"
+                      />
+                    </div>
+                  </form>
+                </div>
+              </div>
+              <div class="row input-pa">
+                <div class="col-lg-12 col-md-12">
+                  <form>
+                    <div class="form-group mix">
+                      <p><i class="fa fa-envelope"></i> Your Email Address</p>
+                      <input
+                        type="email"
+                        class="form-control"
+                        placeholder="name@exmple.com"
+                      />
+                    </div>
+                  </form>
+                </div>
+              </div>
+              <div class="row input-pa">
+                <div class="col-lg-12 col-md-12">
+                  <form>
+                    <div class="form-group mix">
+                      <p><i class="fa fa-comments"></i> Send Us Message</p>
+                      <textarea
+                        class="form-control"
+                        id="exampleFormControlTextarea1"
+                        rows="3"
+                        placeholder="......."
+                      ></textarea>
+                    </div>
+                    <div class="input-btn-pa mix text-center">
+                      <a href="#">
+                        <i class="fa fa-paper-plane"></i>Send Message
+                      </a>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>

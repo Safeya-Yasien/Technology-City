@@ -15,7 +15,7 @@ function displayData(data) {
         <div class="box">
           <div class="product-header">
             <h2>${product.title}</h2>
-            <p>${product.description}</p>
+            <p onclick='revalHiddenOverflow(this)' class='truncate'>${product.description} </p>
           </div>
 
           <img src="${product.image}" />
@@ -41,4 +41,8 @@ function displayData(data) {
   });
 
   productsContent.innerHTML = `<div class="row">${html}</div>`; // Set the HTML content inside the productsContent element
+}
+
+function revalHiddenOverflow(description) {
+  description.classList.toggle("truncate");
 }
