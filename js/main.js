@@ -7,7 +7,7 @@ function displayData(data) {
 
   const productsContent = document.querySelector(".products-content");
 
-  let html = ""; // Initialize an empty string to store HTML content
+  let html = "";
 
   data.forEach((product) => {
     html += `
@@ -40,9 +40,10 @@ function displayData(data) {
     `;
   });
 
-  productsContent.innerHTML = `<div class="row">${html}</div>`; // Set the HTML content inside the productsContent element
+  productsContent.innerHTML = `<div class="row">${html}</div>`;
 }
 
+// products description
 function revalHiddenOverflow(description) {
   description.classList.toggle("truncate");
 }
