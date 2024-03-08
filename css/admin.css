@@ -279,8 +279,16 @@ ul {
   -o-border-radius: 0.375rem;
 }
 
+@media (max-width: 767px) {
+  .content .total-box {
+    width: 350px;
+    height: 58px;
+    margin-left: 10px;
+  }
+}
+
 .content .total {
-  color: var(--white-color);
+  color: var(--text-color);
 }
 
 .row > * {
