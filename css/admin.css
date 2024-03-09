@@ -37,12 +37,6 @@ ul {
   background-color: var(--main-color);
 }
 
-@media (max-width: 767px) {
-  .page {
-    display: block;
-  }
-}
-
 .navbar-vertical {
   width: 250px;
   padding: 20px;
@@ -63,6 +57,7 @@ ul {
     width: 0;
     left: -200px;
     transition: 0.5s;
+    padding: 0;
   }
 }
 
