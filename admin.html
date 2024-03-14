@@ -40,7 +40,9 @@
             <a href="admin.html"><i class="fa-solid fa-chart-pie"></i>Home</a>
           </li>
           <li>
-            <a href="#"><i class="fa-solid fa-boxes-stacked"></i>Products</a>
+            <a href="#" id="show-products-button"
+              ><i class="fa-solid fa-boxes-stacked"></i>Products</a
+            >
           </li>
           <li>
             <a href="#collapseExample" data-bs-toggle="collapse"
@@ -49,7 +51,9 @@
             <div class="collapse" id="collapseExample">
               <div class="card card-body">
                 <ul>
-                  <li><a href="#" id="addProductLink">Add Product</a></li>
+                  <li>
+                    <a href="#" id="create-product-button">Add Product</a>
+                  </li>
                   <li><a href="#" id="productListLink">Categories</a></li>
                 </ul>
               </div>
@@ -95,19 +99,16 @@
               <div class="nav-item">
                 <button type="button"><i class="fa-solid fa-moon"></i></button>
               </div>
-
               <div class="nav-item">
                 <a href="#">
                   <i class="fa-solid fa-bell"></i>
                 </a>
               </div>
-
               <div class="nav-item">
                 <a href="#">
                   <i class="fa-solid fa-grip"></i>
                 </a>
               </div>
-
               <div class="nav-item">
                 <a href="#">
                   <img src="imgs/admin.jpg" alt="Admin" />
@@ -120,96 +121,222 @@
 
       <div class="content w-100" id="content">
         <div>
-          <h2 class="mb-4">Create a product</h2>
-          <div class="row">
-            <div class="col-12">
-              <form class="row">
-                <div class="col-12">
-                  <div class="form-floating position-relative">
-                    <input
-                      class="form-control"
-                      type="text"
-                      placeholder="Product title"
-                    />
-                    <label>Product title</label>
-                  </div>
-                </div>
-                <div class="col-md-3 col-sm-6">
-                  <div class="form-floating position-relative">
-                    <input
-                      class="form-control"
-                      type="number"
-                      placeholder="Product price"
-                    />
-                    <label>Product price</label>
-                  </div>
-                </div>
-                <div class="col-md-3 col-sm-6">
-                  <div class="form-floating position-relative">
-                    <input
-                      class="form-control"
-                      type="number"
-                      placeholder="Product taxs"
-                    />
-                    <label>Product taxs</label>
-                  </div>
-                </div>
-                <div class="col-md-3 col-sm-6">
-                  <div class="form-floating position-relative">
-                    <input
-                      class="form-control"
-                      type="number"
-                      placeholder="Product Ads"
-                    />
-                    <label>Product Ads</label>
-                  </div>
-                </div>
-                <div
-                  class="col-md-3 col-sm-6 d-flex align-items-center total-box"
-                >
-                  <p class="total mb-0">Total</p>
-                </div>
-                <div class="col-12">
-                  <div class="form-floating position-relative">
-                    <input
-                      class="form-control"
-                      type="number"
-                      placeholder="Product count"
-                    />
-                    <label>Product count</label>
-                  </div>
-                </div>
-                <div class="col-12">
-                  <div class="form-floating position-relative">
-                    <input
-                      class="form-control"
-                      type="text"
-                      placeholder="Product category"
-                    />
-                    <label>Product category</label>
-                  </div>
-                </div>
-                <div class="col-12">
-                  <div class="buttons">
-                    <button class="btn cancel-button" type="button">
-                      Cancel
-                    </button>
-                    <button
-                      class="btn px-5 px-sm-15 create-product"
-                      type="button"
-                    >
-                      Create
-                    </button>
-                  </div>
-                </div>
-              </form>
+          <div class="products">
+            <h2 class="mb-4">Products</h2>
+            <div class="nav nav-links mb-2">
+              <div class="nav-item">
+                <a href="#" class="nav-link active"
+                  >All
+                  <span>(1222)</span>
+                </a>
+              </div>
+              <div class="nav-item">
+                <a href="#" class="nav-link"
+                  >Published
+                  <span>(70348)</span>
+                </a>
+              </div>
+              <div class="nav-item">
+                <a href="#" class="nav-link"
+                  >Drafts
+                  <span>(17)</span>
+                </a>
+              </div>
+              <div class="nav-item">
+                <a href="#" class="nav-link"
+                  >On discount
+                  <span>(810)</span>
+                </a>
+              </div>
             </div>
+            <div class="mb-4 proudcts-groups">
+              <div class="d-flex gap-3 align-items-center flex-wrap">
+                <div class="search-box">
+                  <form class="position-relative">
+                    <input
+                      class="search-input form-control position-relative"
+                      type="search"
+                      placeholder="Search products"
+                    />
+                    <i class="fa-solid fa-magnifying-glass search-box-icon"></i>
+                  </form>
+                </div>
+                <div class="scrollbar">
+                  <div class="btn-group">
+                    <div class="dropdown">
+                      <button
+                        type="button"
+                        class="btn"
+                        id="dropdownMenuButton1"
+                        data-bs-toggle="dropdown"
+                        aria-expanded="false"
+                      >
+                        Category
+                        <i class="fa-solid fa-angle-down ms-2"></i>
+                      </button>
+                      <div
+                        class="dropdown-menu"
+                        aria-labelledby="dropdownMenuButton1"
+                      >
+                        <a href="#" class="dropdown-item">Laptops</a>
+                        <a href="#" class="dropdown-item">Phones</a>
+                        <a href="#" class="dropdown-item">Accessories</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="add-product" id="add-product-button">
+                  <button class="btn">
+                    <i class="fa-solid fa-plus me-2"></i>
+                    Add product
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="table-container">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col">
+                    <form>
+                      <input class="form-check-input" type="checkbox" />
+                    </form>
+                  </th>
+                  <th scope="col"></th>
+                  <th scope="col" style="width: 280px">
+                    Product name
+                    <i class="fa-solid fa-sort"></i>
+                  </th>
+                  <th scope="col">Price</th>
+                  <th scope="col">
+                    Category
+                    <i class="fa-solid fa-sort"></i>
+                  </th>
+                  <th scope="col">Tags</th>
+                  <th scope="col"></th>
+                  <th scope="col">published on</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody id="tbody">
+                <tr>
+                  <th scope="row">
+                    <form>
+                      <input class="form-check-input" type="checkbox" />
+                    </form>
+                  </th>
+                  <td>
+                    <a href="#" class="roundend-2">
+                      <img src="imgs/proudct-phone.png" alt="" />
+                    </a>
+                  </td>
+                  <td>
+                    <a href="#">
+                      iPhone 13 pro max-Pacific Blue-128GB storage iPhone 13 pro
+                      max-Pacific Blue-128GB storage
+                    </a>
+                  </td>
+                  <td>$39</td>
+                  <td>Phone</td>
+                  <td>
+                    <div class="d-flex flex-wrap gap-2">
+                      <a href="#"><span class="badge-tag badge">Apple</span></a>
+                      <a href="#"><span class="badge-tag badge">White</span></a>
+                      <a href="#"
+                        ><span class="badge-tag badge">Lifestyle</span></a
+                      >
+                    </div>
+                  </td>
+                  <td><i class="fa-regular fa-star"></i></td>
+                  <td>Nov 12, 10:45 PM</td>
+                  <td>
+                    <i class="fa-solid fa-ellipsis"></i>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">
+                    <form>
+                      <input class="form-check-input" type="checkbox" />
+                    </form>
+                  </th>
+                  <td>
+                    <a href="#" class="roundend-2">
+                      <img src="imgs/proudct-phone.png" alt="" />
+                    </a>
+                  </td>
+                  <td>
+                    <a href="#">
+                      iPhone 13 pro max-Pacific Blue-128GB storage iPhone 13 pro
+                      max-Pacific Blue-128GB storage
+                    </a>
+                  </td>
+                  <td>$39</td>
+                  <td>Phone</td>
+                  <td>
+                    <div class="d-flex flex-wrap gap-2">
+                      <a href="#"><span class="badge-tag badge">Apple</span></a>
+                      <a href="#"><span class="badge-tag badge">White</span></a>
+                      <a href="#"
+                        ><span class="badge-tag badge">Lifestyle</span></a
+                      >
+                    </div>
+                  </td>
+                  <td><i class="fa-regular fa-star"></i></td>
+                  <td>Nov 12, 10:45 PM</td>
+                  <td>
+                    <i class="fa-solid fa-ellipsis"></i>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">
+                    <form>
+                      <input class="form-check-input" type="checkbox" />
+                    </form>
+                  </th>
+                  <td>
+                    <a href="#" class="roundend-2">
+                      <img src="imgs/proudct-phone.png" alt="" />
+                    </a>
+                  </td>
+                  <td>
+                    <a href="#">
+                      iPhone 13 pro max-Pacific Blue-128GB storage iPhone 13 pro
+                      max-Pacific Blue-128GB storage
+                    </a>
+                  </td>
+                  <td>$39</td>
+                  <td>Phone</td>
+                  <td>
+                    <div class="d-flex flex-wrap gap-2">
+                      <a href="#"><span class="badge-tag badge">Apple</span></a>
+                      <a href="#"><span class="badge-tag badge">White</span></a>
+                      <a href="#"
+                        ><span class="badge-tag badge">Lifestyle</span></a
+                      >
+                    </div>
+                  </td>
+                  <td><i class="fa-regular fa-star"></i></td>
+                  <td>Nov 12, 10:45 PM</td>
+                  <td>
+                    <i class="fa-solid fa-ellipsis"></i>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </div>
       </div>
     </div>
-
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+      integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
     <script src="js/bootstrap.bundle.min.js"></script>
     <script src="js/admin.js"></script>
+    <script src="js/add_product.js"></script>
   </body>
 </html>
