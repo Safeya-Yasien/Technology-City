@@ -34,297 +34,321 @@
   </head>
   <body>
     <div class="page position-relative">
-      <div class="navbar-vertical position-relative">
-        <ul class="p-0" id="navbarExample">
-          <li>
-            <a href="admin.html"><i class="fa-solid fa-chart-pie"></i>Home</a>
-          </li>
-          <li>
-            <a href="#" id="show-products-button"
-              ><i class="fa-solid fa-boxes-stacked"></i>Products</a
-            >
-          </li>
-          <li>
-            <a href="#collapseExample" data-bs-toggle="collapse"
-              ><i class="fa-solid fa-store"></i>Products management</a
-            >
-            <div class="collapse" id="collapseExample">
-              <div class="card card-body">
-                <ul>
-                  <li>
-                    <a href="#" id="create-product-button">Add Product</a>
-                  </li>
-                  <li><a href="#" id="productListLink">Categories</a></li>
-                </ul>
-              </div>
-            </div>
-          </li>
-          <li>
-            <a href="#"><i class="fa-solid fa-user"></i>Profile</a>
-          </li>
-          <li>
-            <a href="#"><i class="fa-solid fa-palette"></i>Appearance</a>
-          </li>
-          <li>
-            <a href="#"><i class="fa-solid fa-gear"></i>Settings</a>
-          </li>
-        </ul>
-      </div>
-
-      <!-- Top Navbar -->
-      <div class="navbar-top navbar">
-        <div class="container">
-          <div class="navbar-collapse">
-            <button class="navbar-toggler" type="button">
-              <i class="fa-solid fa-bars"></i>
-            </button>
-            <div class="navbar-logo">
-              <a href="index.html">
-                <img src="imgs/logo.jpeg" alt="Logo" />
-              </a>
-            </div>
-            <div class="navbar-top-search-box">
-              <form class="position-relative" action="">
-                <div class="search-box">
-                  <input
-                    class="search-input"
-                    type="search"
-                    placeholder="Search...."
-                  />
-                  <i class="fa-solid fa-magnifying-glass"></i>
+      <header>
+        <nav class="p-4">
+          <div class="container">
+            <div class="row align-items-center">
+              <div class="logo col-4">
+                <div class="row align-items-center">
+                  <div class="col-md-1">
+                    <div class="bar">
+                      <i class="fa-solid fa-bars mr-15"></i>
+                    </div>
+                  </div>
+                  <div class="col-md-11">
+                    <a href="index.html">
+                      <img src="imgs/logo.jpeg" alt="logo" />
+                    </a>
+                  </div>
                 </div>
-              </form>
-            </div>
-            <div class="navbar-nav">
-              <div class="nav-item">
-                <button type="button"><i class="fa-solid fa-moon"></i></button>
               </div>
-              <div class="nav-item">
-                <a href="#">
-                  <i class="fa-solid fa-bell"></i>
-                </a>
+              <div class="search col-4">
+                <form class="position-relative">
+                  <input type="search" placeholder="Search" />
+                  <i class="fa-solid fa-magnifying-glass"></i>
+                </form>
               </div>
-              <div class="nav-item">
-                <a href="#">
-                  <i class="fa-solid fa-grip"></i>
-                </a>
-              </div>
-              <div class="nav-item">
-                <a href="#">
-                  <img src="imgs/admin.jpg" alt="Admin" />
-                </a>
+              <div class="user col-4">
+                <div class="row align-items-center justify-content-end">
+                  <div class="col-5">
+                    <div class="user-icon">
+                      <ul class="d-flex p-0 mb-0 justify-content-end">
+                        <li>
+                          <a class="p-2" href="#">
+                            <i class="fa-solid fa-bell"></i>
+                          </a>
+                        </li>
+                        <li>
+                          <a class="p-2" href="#">
+                            <i class="fa-solid fa-grip"></i>
+                          </a>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="col-5">
+                    <div class="user-img">
+                      <a href="#">
+                        <img src="imgs/admin.jpg" alt="admin" />
+                      </a>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      </div>
+        </nav>
+      </header>
 
-      <div class="content w-100" id="content">
-        <div>
-          <div class="products">
-            <h2 class="mb-4">Products</h2>
-            <div class="nav nav-links mb-2">
-              <div class="nav-item">
-                <a href="#" class="nav-link active"
-                  >All
-                  <span>(1222)</span>
-                </a>
-              </div>
-              <div class="nav-item">
-                <a href="#" class="nav-link"
-                  >Published
-                  <span>(70348)</span>
-                </a>
-              </div>
-              <div class="nav-item">
-                <a href="#" class="nav-link"
-                  >Drafts
-                  <span>(17)</span>
-                </a>
-              </div>
-              <div class="nav-item">
-                <a href="#" class="nav-link"
-                  >On discount
-                  <span>(810)</span>
-                </a>
+      <div class="dashboard-content">
+        <div class="sidebar">
+          <div class="container">
+            <div class="menus">
+              <ul class="p-0 mb-0" id="">
+                <li>
+                  <a href="#" class="menu-link" data-area-tab="tab-1">
+                    <i class="fa-solid fa-chart-pie"></i>
+                    <span>Home</span>
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    class="menu-link"
+                    id="show-products-button"
+                    data-area-tab="tab-2"
+                  >
+                    <i class="fa-solid fa-boxes-stacked"></i>
+                    <span>Products</span>
+                  </a>
+                </li>
+                <li>
+                  <a class="dropdown" href="#" data-menu="product-management"
+                    ><i class="fa-solid fa-store"></i>
+                    <span>Products management</span>
+                  </a>
+                  <ul class="submenu" id="product-management">
+                    <li>
+                      <a
+                        href="#"
+                        class="menu-link"
+                        id="create-product-button"
+                        data-area-tab="tab-3"
+                      >
+                        Add Product
+                      </a>
+                    </li>
+                    <li><a href="#" id="">Categories</a></li>
+                  </ul>
+                </li>
+                <li>
+                  <a href="#">
+                    <i class="fa-solid fa-user"></i>
+                    <span>Profile</span></a
+                  >
+                </li>
+                <li>
+                  <a href="#">
+                    <i class="fa-solid fa-palette"></i>
+                    <span>Appearance</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="#">
+                    <i class="fa-solid fa-gear"></i>
+                    <span>Settings</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="body-content">
+          <div class="tabs">
+            <div class="tab active" id="tab-1">
+              <div class="head">
+                <h2>Ecommerce Dashboard</h2>
+                <p>Here’s what’s going on at your business right now</p>
               </div>
             </div>
-            <div class="mb-4 proudcts-groups">
-              <div class="d-flex gap-3 align-items-center flex-wrap">
-                <div class="search-box">
-                  <form class="position-relative">
-                    <input
-                      class="search-input form-control position-relative"
-                      type="search"
-                      placeholder="Search products"
-                    />
-                    <i class="fa-solid fa-magnifying-glass search-box-icon"></i>
-                  </form>
-                </div>
-                <div class="scrollbar">
-                  <div class="btn-group">
-                    <div class="dropdown">
-                      <button
-                        type="button"
-                        class="btn"
-                        id="dropdownMenuButton1"
-                        data-bs-toggle="dropdown"
-                        aria-expanded="false"
-                      >
-                        Category
-                        <i class="fa-solid fa-angle-down ms-2"></i>
-                      </button>
-                      <div
-                        class="dropdown-menu"
-                        aria-labelledby="dropdownMenuButton1"
-                      >
-                        <a href="#" class="dropdown-item">Laptops</a>
-                        <a href="#" class="dropdown-item">Phones</a>
-                        <a href="#" class="dropdown-item">Accessories</a>
+            <div class="tab" id="tab-2">
+              <div class="head">
+                <h2>Products</h2>
+              </div>
+              <div class="body">
+                <div class="top-bar">
+                  <div class="row">
+                    <div class="col">
+                      <ul>
+                        <li>
+                          <a href="#">All <span>(100)</span></a>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-4 mb-3 mb-md-0">
+                      <div class="search">
+                        <form class="position-relative">
+                          <input
+                            class="form-control"
+                            type="search"
+                            placeholder="Search products"
+                          />
+                          <i class="fa-solid fa-magnifying-glass"></i>
+                        </form>
+                      </div>
+                    </div>
+                    <div class="col-md-4 mb-3 mb-md-0">
+                      <div class="btn-groups">
+                        <button type="button" class="btn">
+                          <span>Category</span>
+                          <i class="fa-solid fa-angle-down"></i>
+                        </button>
+                      </div>
+                    </div>
+                    <div class="col-md-4">
+                      <div class="add-product">
+                        <button type="button" class="btn">
+                          <i class="fa-solid fa-plus"></i>
+                          <span>Add Product</span>
+                        </button>
                       </div>
                     </div>
                   </div>
                 </div>
-                <div class="add-product" id="add-product-button">
-                  <button class="btn">
-                    <i class="fa-solid fa-plus me-2"></i>
-                    Add product
-                  </button>
+                <div class="products-table">
+                  <table>
+                    <thead>
+                      <tr>
+                        <th scope="col">
+                          <div class="form">
+                            <input type="checkbox" class="form-check-input" />
+                          </div>
+                        </th>
+                        <th scope="col"></th>
+                        <th scope="col">product name</th>
+                        <th scope="col">price</th>
+                        <th scope="col">category</th>
+                        <th scope="col">published on</th>
+                        <th scope="col"></th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>
+                          <div class="form">
+                            <input type="checkbox" class="form-check-input" />
+                          </div>
+                        </td>
+                        <td>
+                          <a class="product-img" href="#">
+                            <img src="imgs/proudct-phone.png" />
+                          </a>
+                        </td>
+                        <td>
+                          <a class="product-name" href="#">
+                            Lorem ipsum dolor sit amet consectetur adipisicing
+                            elit. Quos sequi quis, non explicabo illum
+                            repellendus aut, repellat dolores maiores incidunt
+                            reiciendis praesentium dicta officiis temporibus?
+                            Quam sapiente ea eaque. Illo?
+                          </a>
+                        </td>
+                        <td>$120</td>
+                        <td>Phones</td>
+                        <td>Nov 12, 10:45 PM</td>
+                        <td>
+                          <a
+                            href="#"
+                            class="dropdown"
+                            data-menu="product-edit-option"
+                          >
+                            <i class="fa-solid fa-ellipsis"></i>
+                          </a>
+                          <ul class="submenu" id="product-edit-option">
+                            <li>
+                              <a href="#">update</a>
+                            </li>
+                            <li>
+                              <a href="#">remove</a>
+                            </li>
+                          </ul>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <div class="form">
+                            <input type="checkbox" class="form-check-input" />
+                          </div>
+                        </td>
+                        <td>
+                          <a class="product-img" href="#">
+                            <img src="imgs/proudct-phone.png" />
+                          </a>
+                        </td>
+                        <td>
+                          <a class="product-name" href="#">
+                            Lorem ipsum dolor sit amet consectetur adipisicing
+                            elit. Quos sequi quis, non explicabo illum
+                            repellendus aut, repellat dolores maiores incidunt
+                            reiciendis praesentium dicta officiis temporibus?
+                            Quam sapiente ea eaque. Illo?
+                          </a>
+                        </td>
+                        <td>$120</td>
+                        <td>Phones</td>
+                        <td>Nov 12, 10:45 PM</td>
+                        <td>
+                          <a href="#">
+                            <i class="fa-solid fa-ellipsis"></i>
+                          </a>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
                 </div>
               </div>
             </div>
-          </div>
-
-          <div class="table-container">
-            <table class="table">
-              <thead>
-                <tr>
-                  <th scope="col">
-                    <form>
-                      <input class="form-check-input" type="checkbox" />
+            <div class="tab" id="tab-3">
+              <div class="head">
+                <h2>Add roduct</h2>
+                <p>Orders placed across your store</p>
+              </div>
+              <div class="body">
+                <div class="row">
+                  <div class="col-8 mx-auto">
+                    <form class="p-3">
+                      <div class="mb-5">
+                        <h4 class="mb-3">Product Title</h4>
+                        <input
+                          type="text"
+                          class="form-control"
+                          placeholder="Write title here...."
+                        />
+                      </div>
+                      <div class="mb-5">
+                        <h4 class="mb-3">Product Description</h4>
+                        <textarea
+                          class="form-control"
+                          placeholder="Write description here...."
+                        ></textarea>
+                      </div>
+                      <div class="mb-5">
+                        <h4 class="mb-3">Display images</h4>
+                        <div class="dropzone">
+                          <div class="text">
+                            Drag your photo here
+                            <br />
+                            <img src="imgs/drag-photo.png" alt="" />
+                          </div>
+                        </div>
+                      </div>
+                      <div class="mb-5">
+                        <h4 class="mb-3">Sale Price</h4>
+                        <input class="form-control" placeholder="$$$" />
+                      </div>
+                      <div class="btn-groups">
+                        <button type="button" class="btn">Discard</button>
+                        <button type="button" class="btn">
+                          Publish product
+                        </button>
+                      </div>
                     </form>
-                  </th>
-                  <th scope="col"></th>
-                  <th scope="col" style="width: 280px">
-                    Product name
-                    <i class="fa-solid fa-sort"></i>
-                  </th>
-                  <th scope="col">Price</th>
-                  <th scope="col">
-                    Category
-                    <i class="fa-solid fa-sort"></i>
-                  </th>
-                  <th scope="col">Tags</th>
-                  <th scope="col"></th>
-                  <th scope="col">published on</th>
-                  <th></th>
-                </tr>
-              </thead>
-              <tbody id="tbody">
-                <tr>
-                  <th scope="row">
-                    <form>
-                      <input class="form-check-input" type="checkbox" />
-                    </form>
-                  </th>
-                  <td>
-                    <a href="#" class="roundend-2">
-                      <img src="imgs/proudct-phone.png" alt="" />
-                    </a>
-                  </td>
-                  <td>
-                    <a href="#">
-                      iPhone 13 pro max-Pacific Blue-128GB storage iPhone 13 pro
-                      max-Pacific Blue-128GB storage
-                    </a>
-                  </td>
-                  <td>$39</td>
-                  <td>Phone</td>
-                  <td>
-                    <div class="d-flex flex-wrap gap-2">
-                      <a href="#"><span class="badge-tag badge">Apple</span></a>
-                      <a href="#"><span class="badge-tag badge">White</span></a>
-                      <a href="#"
-                        ><span class="badge-tag badge">Lifestyle</span></a
-                      >
-                    </div>
-                  </td>
-                  <td><i class="fa-regular fa-star"></i></td>
-                  <td>Nov 12, 10:45 PM</td>
-                  <td>
-                    <i class="fa-solid fa-ellipsis"></i>
-                  </td>
-                </tr>
-                <tr>
-                  <th scope="row">
-                    <form>
-                      <input class="form-check-input" type="checkbox" />
-                    </form>
-                  </th>
-                  <td>
-                    <a href="#" class="roundend-2">
-                      <img src="imgs/proudct-phone.png" alt="" />
-                    </a>
-                  </td>
-                  <td>
-                    <a href="#">
-                      iPhone 13 pro max-Pacific Blue-128GB storage iPhone 13 pro
-                      max-Pacific Blue-128GB storage
-                    </a>
-                  </td>
-                  <td>$39</td>
-                  <td>Phone</td>
-                  <td>
-                    <div class="d-flex flex-wrap gap-2">
-                      <a href="#"><span class="badge-tag badge">Apple</span></a>
-                      <a href="#"><span class="badge-tag badge">White</span></a>
-                      <a href="#"
-                        ><span class="badge-tag badge">Lifestyle</span></a
-                      >
-                    </div>
-                  </td>
-                  <td><i class="fa-regular fa-star"></i></td>
-                  <td>Nov 12, 10:45 PM</td>
-                  <td>
-                    <i class="fa-solid fa-ellipsis"></i>
-                  </td>
-                </tr>
-                <tr>
-                  <th scope="row">
-                    <form>
-                      <input class="form-check-input" type="checkbox" />
-                    </form>
-                  </th>
-                  <td>
-                    <a href="#" class="roundend-2">
-                      <img src="imgs/proudct-phone.png" alt="" />
-                    </a>
-                  </td>
-                  <td>
-                    <a href="#">
-                      iPhone 13 pro max-Pacific Blue-128GB storage iPhone 13 pro
-                      max-Pacific Blue-128GB storage
-                    </a>
-                  </td>
-                  <td>$39</td>
-                  <td>Phone</td>
-                  <td>
-                    <div class="d-flex flex-wrap gap-2">
-                      <a href="#"><span class="badge-tag badge">Apple</span></a>
-                      <a href="#"><span class="badge-tag badge">White</span></a>
-                      <a href="#"
-                        ><span class="badge-tag badge">Lifestyle</span></a
-                      >
-                    </div>
-                  </td>
-                  <td><i class="fa-regular fa-star"></i></td>
-                  <td>Nov 12, 10:45 PM</td>
-                  <td>
-                    <i class="fa-solid fa-ellipsis"></i>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -337,6 +361,5 @@
     ></script>
     <script src="js/bootstrap.bundle.min.js"></script>
     <script src="js/admin.js"></script>
-    <script src="js/add_product.js"></script>
   </body>
 </html>
