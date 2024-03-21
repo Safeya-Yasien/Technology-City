@@ -364,9 +364,25 @@ header .user-img img {
   justify-content: center;
 }
 
+.body-content .tabs #tab-3 .body .dropzone #file {
+  display: none;
+}
+
 .body-content .tabs #tab-3 .body .dropzone img {
   margin-top: 1rem;
   cursor: pointer;
+}
+
+.body-content .tabs #tab-3 .body .dropzone .uploaded-img {
+  margin-top: 10px;
+}
+
+.body-content .tabs #tab-3 .body .dropzone .uploaded-img img {
+  width: 100%;
+}
+
+.body-content .tabs #tab-3 .body .dropzone .uploaded-img button {
+  margin-top: 15px;
 }
 
 .body-content .tabs #tab-3 .body .btn-groups {
@@ -375,4 +391,21 @@ header .user-img img {
 
 .body-content .tabs #tab-3 .body .btn-groups .btn {
   width: auto;
+}
+
+.body-content .tabs #tab-3 .body .success-message {
+  text-align: center;
+  color: green;
+  font-size: 20px;
+  display: none;
+}
+
+.body-content .tabs #tab-3 .body .success-message p {
+  margin-bottom: 0;
+  display: inline-block;
+}
+
+.body-content .tabs #tab-3 .body .success-message a {
+  text-decoration: underline;
+  font-size: 16px;
 }

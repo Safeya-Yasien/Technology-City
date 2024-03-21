@@ -32,4 +32,7 @@ https://safeya-yasien.github.io/Technology-City/
     <br>
     - click add button display add product form
     <br>
-
+    - when add product display succeed message and display it in products page at first
+    <br>
+    - upload product img
+    <br>

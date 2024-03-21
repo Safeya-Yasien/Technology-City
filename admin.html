@@ -155,13 +155,13 @@
         </div>
         <div class="body-content">
           <div class="tabs">
-            <div class="tab active" id="tab-1">
+            <div class="tab" id="tab-1">
               <div class="head">
                 <h2>Ecommerce Dashboard</h2>
                 <p>Here’s what’s going on at your business right now</p>
               </div>
             </div>
-            <div class="tab" id="tab-2">
+            <div class="tab active" id="tab-2">
               <div class="head">
                 <h2>Products</h2>
               </div>
@@ -199,7 +199,11 @@
                     </div>
                     <div class="col-md-4">
                       <div class="add-product">
-                        <button type="button" class="btn">
+                        <button
+                          type="button"
+                          class="btn"
+                          id="products-add-product"
+                        >
                           <i class="fa-solid fa-plus"></i>
                           <span>Add Product</span>
                         </button>
@@ -224,7 +228,10 @@
                         <th scope="col"></th>
                       </tr>
                     </thead>
+
                     <tbody>
+                      <!-- 
+
                       <tr>
                         <td>
                           <div class="form">
@@ -295,6 +302,9 @@
                           </a>
                         </td>
                       </tr>
+
+
+                                        -->
                     </tbody>
                   </table>
                 </div>
@@ -312,6 +322,7 @@
                       <div class="mb-5">
                         <h4 class="mb-3">Product Title</h4>
                         <input
+                          id="product-title"
                           type="text"
                           class="form-control"
                           placeholder="Write title here...."
@@ -320,29 +331,65 @@
                       <div class="mb-5">
                         <h4 class="mb-3">Product Description</h4>
                         <textarea
+                          id="product-description"
                           class="form-control"
                           placeholder="Write description here...."
                         ></textarea>
                       </div>
                       <div class="mb-5">
+                        <h4 class="mb-3">Product Category</h4>
+                        <input
+                          id="product-category"
+                          type="text"
+                          class="form-control"
+                          placeholder="category"
+                        />
+                      </div>
+                      <div class="mb-5">
                         <h4 class="mb-3">Display images</h4>
                         <div class="dropzone">
                           <div class="text">
-                            Drag your photo here
-                            <br />
-                            <img src="imgs/drag-photo.png" alt="" />
+                            <p>Drag your photo here <span>or</span>Browse</p>
+                            <input
+                              type="file"
+                              accept="image/*"
+                              name="image"
+                              id="file"
+                            />
+                            <label for="file"
+                              ><img src="imgs/drag-photo.png" alt=""
+                            /></label>
+                            <div class="uploaded-img"></div>
                           </div>
                         </div>
                       </div>
                       <div class="mb-5">
                         <h4 class="mb-3">Sale Price</h4>
-                        <input class="form-control" placeholder="$$$" />
+                        <input
+                          id="product-price"
+                          class="form-control"
+                          placeholder="$$$"
+                        />
                       </div>
-                      <div class="btn-groups">
-                        <button type="button" class="btn">Discard</button>
-                        <button type="button" class="btn">
+                      <div class="btn-groups mb-5">
+                        <button
+                          type="button"
+                          class="btn"
+                          id="discard-product-button"
+                        >
+                          Discard
+                        </button>
+                        <button
+                          type="button"
+                          class="btn"
+                          id="publish-product-button"
+                        >
                           Publish product
                         </button>
+                      </div>
+                      <div class="success-message">
+                        <p>Product Added Successfully</p>
+                        <a class="see-products" href="#">See here</a>
                       </div>
                     </form>
                   </div>
@@ -360,6 +407,8 @@
       referrerpolicy="no-referrer"
     ></script>
     <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/add_product.js"></script>
+    <script src="js/displayProducts.js"></script>
     <script src="js/admin.js"></script>
   </body>
 </html>
