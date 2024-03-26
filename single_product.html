@@ -14,6 +14,7 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+    <link rel="stylesheet" href="css/single_product.css" />
     <link rel="stylesheet" href="css/style.css" />
     <!-- google font -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -74,48 +75,34 @@
         </div>
       </nav>
 
-      <div class="landing position-relative">
+      <div class="product" id="product">
         <div class="container">
-          <div class="site-title text-center position-relative">
-            <!-- <div class="badge"> -->
-            <h1 class="site-name">Technology City</h1>
-            <!-- </div> -->
-            <h3>Electronics store</h3>
-            <p>Powering Your Passion for Electronics</p>
-            <button type="button" class="btn btn-rounded" data-mdb-ripple-init>
-              Shop Now
-            </button>
-          </div>
-        </div>
-      </div>
-
-      <div class="products-categories">
-        <div class="container">
-          <div class="special-title">
-            <h4>Category</h4>
-            <img src="imgs/special-heading.png" alt="special-heading" />
-          </div>
-          <div class="products-category-links">
-            <div class="row align-items-center">
-              <div class="col-lg-4 col-md-6 text-center">
-                <img src="imgs/laptops.png" src="laptops" />
-                <a href="#">Laptops</a>
+          <div class="card mb-3">
+            <div class="row g-0">
+              <div class="col-md-6">
+                <img
+                  src="imgs/proudct-phone.png"
+                  class="img-fluid rounded-start"
+                  alt="..."
+                />
               </div>
-              <div class="col-lg-4 col-md-6 text-center">
-                <img src="imgs/phone.png" src="phones" /> <a href="#">Phones</a>
-              </div>
-              <div class="col-lg-4 col-md-6 text-center">
-                <img src="imgs/accessories.png" src="accessories" />
-                <a href="#">Accessories</a>
+              <div class="col-md-6 product-info">
+                <div class="card-body">
+                  <h5 class="card-title">Card title</h5>
+                  <p class="card-text">
+                    This is a wider card with supporting text below as a natural
+                    lead-in to additional content. This content is a little bit
+                    longer.
+                  </p>
+                  <div>
+                    <button class="btn">Add to cart</button>
+                    <button class="btn">Buy Now</button>
+                  </div>
+                  <p class="card-text price">$100</p>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      </div>
-
-      <div class="products" id="products">
-        <div class="container">
-          <div class="products-content"></div>
         </div>
       </div>
 
@@ -197,6 +184,5 @@
     </div>
 
     <script src="js/bootstrap.bundle.min.js"></script>
-    <script src="js/main.js"></script>
   </body>
 </html>

@@ -18,7 +18,11 @@ function displayData(data) {
             <p onclick='revalHiddenOverflow(this)' class='truncate'>${product.description} </p>
           </div>
 
-          <img src="${product.image}" />
+          <div class="product-img">
+          <a href="single_product.html">
+            <img src="${product.image}" />
+          </a>
+        </div>
 
           <div class="product-footer">
             <div class="reviews">
@@ -31,7 +35,7 @@ function displayData(data) {
             </div>
 
             <div class="product-price">
-              <p>${product.price}</p>
+              <p>${product.price}$</p>
               <i class="fa-solid fa-cart-shopping"></i>
             </div>
           </div>
@@ -47,3 +51,7 @@ function displayData(data) {
 function revalHiddenOverflow(description) {
   description.classList.toggle("truncate");
 }
+
+// $(function() {
+//   $(".site-name").lettering();
+// });
