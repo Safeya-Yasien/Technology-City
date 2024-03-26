@@ -43,7 +43,7 @@ function displayProducts(apiData) {
     <td class='product-price-update'>${apiData[i].price}</td>
     <td class='product-category-update'>${apiData[i].category}</td>
     <td>Nov 12, 10:45 PM</td>
-    <td>
+    <td class='position-relative'>
         <a
         href="#"
         class="ellipsis-menu-toggle"

@@ -336,6 +336,20 @@ header .user-img img {
   margin: 0;
 }
 
+.body-content .tabs #tab-2 .ellipsis-menu.submenu {
+  padding-left: 0;
+}
+
+.body-content .tabs #tab-2 .ellipsis-menu {
+  position: absolute;
+  left: 50px;
+  top: 45px;
+}
+
+.body-content .tabs #tab-2 .ellipsis-menu li:not(:last-child) {
+  margin-bottom: 5px;
+}
+
 /* tab-3 */
 .body-content .tabs #tab-3 .body h4 {
   color: var(--white-color);
