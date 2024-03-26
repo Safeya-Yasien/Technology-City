@@ -36,3 +36,5 @@ https://safeya-yasien.github.io/Technology-City/
     <br>
     - upload product img
     <br>
+    - handle products page product option (update - delete)
+    <br>
