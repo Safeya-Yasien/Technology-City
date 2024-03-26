@@ -27,14 +27,4 @@ https://safeya-yasien.github.io/Technology-City/
 - home page<br>
 - products page <br>
     - when click on button there is a shadow or border or outline appears i want to hide it
-    <br>
-    - when click on category button display a submenu
-    <br>
-    - click add button display add product form
-    <br>
-    - when add product display succeed message and display it in products page at first
-    <br>
-    - upload product img
-    <br>
-    - handle products page product option (update - delete)
-    <br>
+<br>

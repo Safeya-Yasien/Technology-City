@@ -87,11 +87,9 @@ function uploadImg(event) {
     reader.onload = (e) => {
       const imgSrc = e.target.result;
 
-      // Create a new image element
       const imgElement = document.createElement("img");
       imgElement.src = imgSrc;
 
-      // Create a delete button
       const deleteButton = document.createElement("button");
       deleteButton.className = "btn";
       deleteButton.textContent = "Delete";
@@ -99,7 +97,6 @@ function uploadImg(event) {
         uploadedImgContainer.removeChild(imgElement);
         uploadedImgContainer.removeChild(deleteButton);
 
-        // Reattach event listener after deleting
         uploadImgButton.value = "";
         uploadImgButton.removeEventListener("change", uploadImg);
         uploadImgButton.addEventListener("change", uploadImg);
