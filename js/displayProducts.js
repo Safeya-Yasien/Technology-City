@@ -19,7 +19,7 @@ function displayProducts(apiData) {
   const tbody = document.querySelector("#tab-2 .products-table table tbody");
   tbody.innerHTML = "";
 
-  apiData.forEach((product) => {
+  for (let i = 0; i < apiData.length; i++) {
     const tr = document.createElement("tr");
 
     tr.innerHTML = `
@@ -32,16 +32,16 @@ function displayProducts(apiData) {
     </td>
     <td>
         <a class="product-img" href="#">
-        <img src="${product.image}" />
+        <img src="${apiData[i].image}" />
         </a>
     </td>
     <td>
         <a class="product-name" href="#">
-        ${product.title}
+        ${apiData[i].title}
         </a>
     </td>
-    <td class='product-price-update'>${product.price}</td>
-    <td class='product-category-update'>${product.category}</td>
+    <td class='product-price-update'>${apiData[i].price}</td>
+    <td class='product-category-update'>${apiData[i].category}</td>
     <td>Nov 12, 10:45 PM</td>
     <td>
         <a
@@ -52,10 +52,12 @@ function displayProducts(apiData) {
         </a>
         <ul class="ellipsis-menu submenu">
         <li>
-            <a href="#" id='update-product'>update</a>
+        <a href="#" onclick='displayAddProductFrom(${JSON.stringify(
+          apiData[i]
+        )})'>update</a>
         </li>
         <li>
-            <a href="#" id='remove-product'>remove</a>
+            <a href="#" onclick='removeProduct(${i})'>remove</a>
         </li>
         </ul>
     </td>
@@ -66,8 +68,6 @@ function displayProducts(apiData) {
 
     const ellipsisMenuToggle = tr.querySelector(".ellipsis-menu-toggle");
     const ellipsisMenu = tr.querySelector(".ellipsis-menu");
-    const updateProductLink = tr.querySelector("#update-product");
-    const removeProductLink = tr.querySelector("#remove-product");
     ellipsisMenuToggle.addEventListener("click", showOptions);
 
     function showOptions(event) {
@@ -75,22 +75,17 @@ function displayProducts(apiData) {
 
       ellipsisMenu.classList.toggle("show");
     }
+  }
+}
 
-    removeProductLink.addEventListener("click", (event) => {
-      event.preventDefault();
-      removeProduct(tr);
-    });
+function removeProduct(index) {
+  const localStorageData = JSON.parse(localStorage.getItem("product")) || [];
 
-    function removeProduct(productRow) {
-      productRow.remove();
-      localStorage.getItem("product");
-    }
+  localStorageData.splice(index, 1);
 
-    updateProductLink.addEventListener("click", (event) => {
-      event.preventDefault();
-      displayAddProductFrom(tr);
-    });
-  });
+  localStorage.setItem("product", JSON.stringify(localStorageData));
+
+  fetchProducts();
 }
 
 function displayAddProductFrom(product) {
@@ -101,21 +96,20 @@ function displayAddProductFrom(product) {
   const successMessage = document.querySelector(".success-message");
   successMessage.style.display = "none";
 
-  console.log(product);
-
-  const productName = document.querySelector(".product-name"),
-    productCategoryUpdate = document.querySelector(".product-category-update"),
-    productPriceUpdate = document.querySelector(".product-price-update");
-
-  const productTitle = document.querySelector("#product-title"),
-    productCategory = document.querySelector("#product-category"),
-    productPrice = document.querySelector("#product-price");
-
-  productTitle.value = productName.innerHTML.trim();
-  productCategory.value = productCategoryUpdate.innerHTML.trim();
-  productPrice.value = productPriceUpdate.innerHTML.trim();
-
   $("#tab-3").addClass("active").hide().fadeIn(1000);
+
+  productTitle.value = product.title;
+  productDescription.value = product.description;
+  productCategory.value = product.category;
+  productPrice.value = product.price;
+
+  if (product.image) {
+    const imgElement = document.createElement("img");
+    imgElement.src = product.image;
+
+    uploadedImgContainer.innerHTML = "";
+    uploadedImgContainer.appendChild(imgElement);
+  }
 }
 
 fetchProducts();

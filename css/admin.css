@@ -121,7 +121,7 @@ header .user-img img {
 .sidebar .menus .submenu,
 .body .products-table .submenu {
   margin-top: 15px;
-  /* display: none; */
+  display: none;
   padding-left: 50px;
 }
 
