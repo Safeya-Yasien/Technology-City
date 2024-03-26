@@ -327,15 +327,15 @@ ul {
   text-overflow: ellipsis;
 }
 
-.products .products-content .product-img{
+.products .products-content .product-img {
   max-width: 250px;
   height: 150px;
-
+  margin: 0 auto;
 }
 
 .products .products-content img {
-width: 100%;
-height: 100%;
+  width: 100%;
+  height: 100%;
 }
 
 .products .products-content .product-footer .reviews i {
