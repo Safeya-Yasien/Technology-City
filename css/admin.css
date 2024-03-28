@@ -92,8 +92,9 @@ header .user-img img {
 
 /* dashboard content */
 .dashboard-content {
-  display: grid;
+  /* display: grid; */
   grid-template-columns: 15% 85%;
+  display: flex;
   background-color: var(--black-color);
 }
 
@@ -106,6 +107,7 @@ header .user-img img {
   padding: 150px 0;
   min-height: 100vh;
   z-index: 998;
+  transition: var(--main-transition);
 }
 
 @media (max-width: 767px) {
@@ -152,6 +154,7 @@ header .user-img img {
   background-color: var(--black-color);
   box-shadow: 1px 1px 30px #2f688d;
   padding-bottom: 40px;
+  overflow: hidden;
 }
 
 .body-content .tabs .tab {
@@ -252,6 +255,7 @@ header .user-img img {
   min-height: 100vh;
   border-top: 1px solid var(--icons-color);
   padding: 0px 20px;
+  overflow-x: auto;
 }
 
 .body-content .tabs #tab-2 .body .products-table th {

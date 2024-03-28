@@ -1,10 +1,31 @@
+const landingPage = document.querySelector(".landing");
+const imgs = [
+  "imgs/wallpaperflare-2.jpg",
+  "imgs/wallpaperflare-3.jpg",
+  "imgs/wallpaperflare-1.jpg",
+  "imgs/wallpaperflare-4.jpg",
+  "imgs/wallpaperflare-5.jpg",
+];
+
+let currentIndex = 0;
+
+function changeLandingBackground() {
+  landingPage.style.backgroundImage = `url('${imgs[currentIndex]}')`;
+
+  if (currentIndex == imgs.length - 1) {
+    currentIndex = 0;
+  } else {
+    currentIndex++;
+  }
+
+  setTimeout(() => changeLandingBackground(), 3000);
+}
+
 fetch("https://fakestoreapi.com/products/category/electronics")
   .then((res) => res.json())
   .then((json) => displayData(json));
 
 function displayData(data) {
-  console.log(data);
-
   const productsContent = document.querySelector(".products-content");
 
   let html = "";
@@ -19,10 +40,10 @@ function displayData(data) {
           </div>
 
           <div class="product-img">
-          <a href="single_product.html">
-            <img src="${product.image}" />
-          </a>
-        </div>
+            <a href="#">
+              <img src="${product.image}" />
+            </a>
+          </div>
 
           <div class="product-footer">
             <div class="reviews">
@@ -52,6 +73,4 @@ function revalHiddenOverflow(description) {
   description.classList.toggle("truncate");
 }
 
-// $(function() {
-//   $(".site-name").lettering();
-// });
+changeLandingBackground();
