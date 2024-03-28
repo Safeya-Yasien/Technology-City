@@ -154,6 +154,7 @@ header .user-img img {
   background-color: var(--black-color);
   box-shadow: 1px 1px 30px #2f688d;
   padding-bottom: 40px;
+  flex: 1;
   overflow: hidden;
 }
 
