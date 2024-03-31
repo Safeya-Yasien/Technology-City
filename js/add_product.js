@@ -89,6 +89,7 @@ function uploadImg(event) {
 
       const imgElement = document.createElement("img");
       imgElement.src = imgSrc;
+      imgElement.alt='product'
 
       const deleteButton = document.createElement("button");
       deleteButton.className = "btn";

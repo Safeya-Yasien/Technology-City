@@ -32,7 +32,7 @@ function displayProducts(apiData) {
     </td>
     <td>
         <a class="product-img" href="#">
-        <img src="${apiData[i].image}" />
+        <img src="${apiData[i].image}" alt='product'/>
         </a>
     </td>
     <td>
@@ -106,6 +106,7 @@ function displayAddProductFrom(product) {
   if (product.image) {
     const imgElement = document.createElement("img");
     imgElement.src = product.image;
+    imgElement.alt = 'product';
 
     uploadedImgContainer.innerHTML = "";
     uploadedImgContainer.appendChild(imgElement);

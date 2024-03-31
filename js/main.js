@@ -41,7 +41,7 @@ function displayData(data) {
 
           <div class="product-img">
             <a href="#">
-              <img src="${product.image}" />
+              <img src="${product.image}" alt='product'/>
             </a>
           </div>
 
