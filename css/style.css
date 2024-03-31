@@ -196,7 +196,6 @@ ul {
   background-position: center;
   background-repeat: no-repeat;
   height: 100vh;
-  /* top: 146.94px; */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -244,7 +243,7 @@ ul {
 
 @media (max-width: 767px) {
   .landing .site-title h1 {
-    font-size: 40px;
+    font-size: 25px;
   }
 }
 
@@ -278,12 +277,139 @@ ul {
   font-weight: 400;
 }
 
+@media (max-width: 490px) {
+  .landing .input-btn-pa a {
+    padding: 14px 15px;
+  }
+}
+
 .input-btn-pa a:hover {
   background: none;
 }
 
 .input-btn-pa a i {
   padding-right: 5px;
+}
+
+/* about */
+.about {
+  padding-top: 70px;
+  padding-bottom: 3.125rem;
+  position: relative;
+}
+
+.about .card-title {
+  color: var(--main-color);
+  font-weight: bold;
+}
+
+/* timeline */
+.timeline {
+  background-color: var(--black-color);
+  padding: 50px 0;
+}
+
+.timeline h4 {
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 10px;
+  font-family: "Trade Winds", system-ui;
+  margin-bottom: 0;
+  color: var(--white-color);
+}
+
+.timeline .text {
+  color: #a7a7a7;
+}
+
+.timeline .week {
+  color: var(--white-color);
+}
+
+.timeline-steps {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.timeline-steps .timeline-step {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  margin: 1rem;
+}
+
+@media (min-width: 768px) {
+  .timeline-steps .timeline-step:not(:last-child):after {
+    content: "";
+    display: block;
+    border-top: 0.25rem dotted #3b82f6;
+    width: 3.46rem;
+    position: absolute;
+    left: 7.5rem;
+    top: 0.3125rem;
+  }
+  .timeline-steps .timeline-step:not(:first-child):before {
+    content: "";
+    display: block;
+    border-top: 0.25rem dotted #3b82f6;
+    width: 3.8125rem;
+    position: absolute;
+    right: 7.5rem;
+    top: 0.3125rem;
+  }
+}
+
+.timeline-steps .timeline-content {
+  width: 10rem;
+  text-align: center;
+}
+
+.timeline-steps .timeline-content .inner-circle {
+  border-radius: 1.5rem;
+  height: 1rem;
+  width: 1rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #3b82f6;
+}
+
+.timeline-steps .timeline-content .inner-circle:before {
+  content: "";
+  background-color: #3b82f6;
+  display: inline-block;
+  height: 3rem;
+  width: 3rem;
+  min-width: 3rem;
+  border-radius: 6.25rem;
+  opacity: 0.5;
+}
+
+/* features */
+.features {
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+.features .single-promo {
+  font-size: 25px;
+  font-weight: 200;
+  padding: 20px 10px;
+  text-align: center;
+  border: 1px solid var(--hover-color);
+  cursor: pointer;
+  transition: var(--main-transition);
+}
+
+.features .single-promo:hover {
+  background-color: var(--black-color);
+  color: var(--white-color);
+}
+
+.features .single-promo i {
+  font-size: 50px;
 }
 
 /* products */
@@ -322,22 +448,7 @@ ul {
   font-weight: bold;
 }
 
-.products-categories {
-}
-
-.products-categories {
-}
-
-.products-categories {
-}
-
-.products-categories {
-}
 /* products */
-.products {
-  padding-bottom: 80px;
-}
-
 .products .products-content .box {
   background-color: var(--black-color);
   padding: 20px;
@@ -406,6 +517,68 @@ ul {
 
 .products .products-content .product-footer .product-price i:hover {
   color: var(--hover-color);
+}
+
+/* team */
+.team {
+  padding: 60px 0;
+  background-color: #eee;
+}
+
+.team .card {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  padding: 30px;
+}
+
+.team .name {
+  margin-top: 15px;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.team .job {
+  color: #a7a7a7;
+}
+
+.team .image {
+  width: 160px;
+  margin: 0 auto;
+}
+
+.team .image img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+
+.team .text {
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.team .social-media-links {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.team .social-media-links a {
+  color: var(--black-color);
+  padding: 5px;
+  transition: var(--main-transition);
+}
+
+.team .social-media-links a:hover {
+  color: var(--hover-color);
+}
+
+.team .social-media-links i {
+  font-size: 20px;
+}
+
+.team .input-btn-pa a:hover {
+  background-color: var(--black-color);
+  outline: 0;
 }
 
 /* contact */
