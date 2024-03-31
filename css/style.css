@@ -265,7 +265,6 @@ ul {
 
 .input-btn-pa a {
   font-size: 16px;
-  font-family: rb;
   border: 1px solid var(--hover-color);
   padding: 14px 70px;
   color: #fff;
@@ -415,7 +414,7 @@ ul {
 /* products */
 .products-categories {
   margin-top: 0px;
-  padding-top: 70px;
+  padding-top: 50px;
   padding-bottom: 3.125rem;
 }
 
@@ -537,7 +536,7 @@ ul {
 }
 
 .team .job {
-  color: #a7a7a7;
+  color: #222;
 }
 
 .team .image {
