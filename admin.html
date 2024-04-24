@@ -219,88 +219,13 @@
                         <th scope="col"></th>
                         <th scope="col">product name</th>
                         <th scope="col">price</th>
-                        <th scope="col">category</th>
+                        <th scope="col">description</th>
                         <th scope="col">published on</th>
                         <th scope="col"></th>
                       </tr>
                     </thead>
-
                     <tbody>
-                      <!-- 
-
-                      <tr>
-                        <td>
-                          <div class="form">
-                            <input type="checkbox" class="form-check-input" />
-                          </div>
-                        </td>
-                        <td>
-                          <a class="product-img" href="#">
-                            <img src="imgs/proudct-phone.png" />
-                          </a>
-                        </td>
-                        <td>
-                          <a class="product-name" href="#">
-                            Lorem ipsum dolor sit amet consectetur adipisicing
-                            elit. Quos sequi quis, non explicabo illum
-                            repellendus aut, repellat dolores maiores incidunt
-                            reiciendis praesentium dicta officiis temporibus?
-                            Quam sapiente ea eaque. Illo?
-                          </a>
-                        </td>
-                        <td>$120</td>
-                        <td>Phones</td>
-                        <td>Nov 12, 10:45 PM</td>
-                        <td>
-                          <a
-                            href="#"
-                            class="dropdown"
-                            data-menu="product-edit-option"
-                          >
-                            <i class="fa-solid fa-ellipsis"></i>
-                          </a>
-                          <ul class="submenu" id="product-edit-option">
-                            <li>
-                              <a href="#">update</a>
-                            </li>
-                            <li>
-                              <a href="#">remove</a>
-                            </li>
-                          </ul>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          <div class="form">
-                            <input type="checkbox" class="form-check-input" />
-                          </div>
-                        </td>
-                        <td>
-                          <a class="product-img" href="#">
-                            <img src="imgs/proudct-phone.png" />
-                          </a>
-                        </td>
-                        <td>
-                          <a class="product-name" href="#">
-                            Lorem ipsum dolor sit amet consectetur adipisicing
-                            elit. Quos sequi quis, non explicabo illum
-                            repellendus aut, repellat dolores maiores incidunt
-                            reiciendis praesentium dicta officiis temporibus?
-                            Quam sapiente ea eaque. Illo?
-                          </a>
-                        </td>
-                        <td>$120</td>
-                        <td>Phones</td>
-                        <td>Nov 12, 10:45 PM</td>
-                        <td>
-                          <a href="#">
-                            <i class="fa-solid fa-ellipsis"></i>
-                          </a>
-                        </td>
-                      </tr>
-
-
-                                        -->
+                      <!-- display products here -->
                     </tbody>
                   </table>
                 </div>
@@ -333,15 +258,6 @@
                         ></textarea>
                       </div>
                       <div class="mb-5">
-                        <h4 class="mb-3">Product Category</h4>
-                        <input
-                          id="product-category"
-                          type="text"
-                          class="form-control"
-                          placeholder="category"
-                        />
-                      </div>
-                      <div class="mb-5">
                         <h4 class="mb-3">Display images</h4>
                         <div class="dropzone">
                           <div class="text">
@@ -362,6 +278,7 @@
                       <div class="mb-5">
                         <h4 class="mb-3">Sale Price</h4>
                         <input
+                          type="number"
                           id="product-price"
                           class="form-control"
                           placeholder="$$$"
@@ -380,11 +297,11 @@
                           class="btn"
                           id="publish-product-button"
                         >
-                          Publish product
+                          Publish Product
                         </button>
                       </div>
-                      <div class="success-message">
-                        <p>Product Added Successfully</p>
+                      <div class="success-message-container">
+                        <p class="success-message"></p>
                         <a class="see-products" href="#">See here</a>
                       </div>
                     </form>
@@ -404,6 +321,7 @@
     ></script>
     <script src="js/bootstrap.bundle.min.js"></script>
     <script src="js/add_product.js"></script>
+    <script src="js/global_functions.js"></script>
     <script src="js/displayProducts.js"></script>
     <script src="js/admin.js"></script>
   </body>

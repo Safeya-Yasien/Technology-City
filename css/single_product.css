@@ -15,12 +15,28 @@
 }
 
 .product .card-title {
-  font-size: 2rem;
+  font-size: 25px;
   margin-bottom: 0;
+}
+
+.product .reviews {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+
+}
+
+
+.product .reviews .icons {
+  display: flex;
 }
 
 .product .reviews i {
   font-size: 12px;
+}
+
+.product .reviews span {
+  margin-left: 8px;
 }
 
 .product .btn {
@@ -31,11 +47,11 @@
 }
 
 .product .card-text {
-  margin: 4rem 0;
+  margin: 1rem 0;
 }
 
 .product .card-text.price {
   font-size: 20px;
   font-weight: bold;
-  margin: 2rem 0;
+  margin: 1rem 0;
 }

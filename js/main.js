@@ -7,8 +7,8 @@ const imgs = [
   "imgs/wallpaperflare-5.jpg",
 ];
 
+// change  background color
 let currentIndex = 0;
-
 function changeLandingBackground() {
   landingPage.style.backgroundImage = `url('${imgs[currentIndex]}')`;
 
@@ -21,56 +21,40 @@ function changeLandingBackground() {
   setTimeout(() => changeLandingBackground(), 3000);
 }
 
-fetch("https://fakestoreapi.com/products/category/electronics")
-  .then((res) => res.json())
-  .then((json) => displayData(json));
-
-function displayData(data) {
+// display products
+async function displayData() {
+  const apiData = await fetchData();
   const productsContent = document.querySelector(".products-content");
 
   let html = "";
 
-  data.forEach((product) => {
+  for (let i = 0; i < apiData.length; i++) {
     html += `
       <div class="col-lg-4 col-md-4 col-sm-6 mb-4">
-        <div class="box">
+        <div class="box" onclick='openProductPage(${JSON.stringify(
+          apiData[i].id
+        )})'>
           <div class="product-header">
-            <h2>${product.title}</h2>
-            <p onclick='revalHiddenOverflow(this)' class='truncate'>${product.description} </p>
+            <h2>${apiData[i].name}</h2>
+            <p>${apiData[i].description} </p>
           </div>
-
-          <div class="product-img">
-            <a href="#">
-              <img src="${product.image}" alt='product'/>
-            </a>
-          </div>
-
           <div class="product-footer">
-            <div class="reviews">
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-            </div>
-
             <div class="product-price">
-              <p>${product.price}$</p>
+              <p>${apiData[i].price}$</p>
               <i class="fa-solid fa-cart-shopping"></i>
             </div>
           </div>
         </div>
       </div>
     `;
-  });
+  }
 
   productsContent.innerHTML = `<div class="row">${html}</div>`;
 }
 
-// products description
-function revalHiddenOverflow(description) {
-  description.classList.toggle("truncate");
+function openProductPage(productId) {
+  window.location.href = `single_product.html?id=${productId}`;
 }
 
 changeLandingBackground();
+displayData();

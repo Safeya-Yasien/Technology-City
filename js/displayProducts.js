@@ -1,8 +1,7 @@
-const api = "https://fakestoreapi.com/products/category/electronics";
 const productsAddProductButton = document.querySelector(
-    "#products-add-product"
-  ),
-  AllTabs = document.querySelectorAll(".tab");
+  "#products-add-product"
+);
+const AllTabs = document.querySelectorAll(".tab");
 
 productsAddProductButton.addEventListener("click", displayAddProductFrom);
 
@@ -10,12 +9,12 @@ async function fetchProducts() {
   const response = await fetch(api);
   const apiData = await response.json();
 
-  const localStorageData = JSON.parse(localStorage.getItem("product")) || [];
-  const mergedData = localStorageData.concat(apiData);
-  displayProducts(mergedData);
+  displayProducts(apiData);
 }
 
 function displayProducts(apiData) {
+  console.log(apiData);
+
   const tbody = document.querySelector("#tab-2 .products-table table tbody");
   tbody.innerHTML = "";
 
@@ -23,7 +22,6 @@ function displayProducts(apiData) {
     const tr = document.createElement("tr");
 
     tr.innerHTML = `
-    
 
     <td>
         <div class="form">
@@ -31,18 +29,18 @@ function displayProducts(apiData) {
         </div>
     </td>
     <td>
-        <a class="product-img" href="#">
-        <img src="${apiData[i].image}" alt='product'/>
-        </a>
+        <img src='' alt=''>
     </td>
     <td>
         <a class="product-name" href="#">
-        ${apiData[i].title}
+        ${apiData[i].name}
         </a>
     </td>
     <td class='product-price-update'>${apiData[i].price}</td>
-    <td class='product-category-update'>${apiData[i].category}</td>
-    <td>Nov 12, 10:45 PM</td>
+    <td class='product-description-update product-description'>${
+      apiData[i].description
+    }</td>
+    <td>${formatDate(apiData[i].created_at)}</td>
     <td class='position-relative'>
         <a
         href="#"
@@ -52,12 +50,14 @@ function displayProducts(apiData) {
         </a>
         <ul class="ellipsis-menu submenu">
         <li>
-        <a href="#" onclick='displayAddProductFrom(${JSON.stringify(
-          apiData[i]
-        )})'>update</a>
+            <a href="#" onclick='updateProduct(${JSON.stringify(
+              apiData[i].id
+            )})'>update</a>
         </li>
         <li>
-            <a href="#" onclick='removeProduct(${i})'>remove</a>
+            <a href="#" onclick='removeProduct(${JSON.stringify(
+              apiData[i].id
+            )})'>remove</a>
         </li>
         </ul>
     </td>
@@ -78,39 +78,121 @@ function displayProducts(apiData) {
   }
 }
 
-function removeProduct(index) {
-  const localStorageData = JSON.parse(localStorage.getItem("product")) || [];
+// fomrat date
+function formatDate(date) {
+  const options = {
+    month: "short",
+    day: "2-digit",
+    hour: "numeric",
+    minute: "2-digit",
+    hour12: "true",
+  };
 
-  localStorageData.splice(index, 1);
-
-  localStorage.setItem("product", JSON.stringify(localStorageData));
-
-  fetchProducts();
+  const createdProductDate = new Date(date).toLocaleString("en-US", options);
+  return createdProductDate;
 }
 
-function displayAddProductFrom(product) {
+// update product
+async function updateProduct(id) {
+  try {
+    const response = await fetch(`${api}/${id}`);
+    if (!response.ok) {
+      throw new Error("Faild to fetch this product.");
+    }
+
+    const responseData = await response.json();
+    console.log(responseData);
+
+    populateFormFields(responseData);
+    publishProductButton.removeEventListener("click", handleUpdate);
+    publishProductButton.addEventListener("click", () => handleUpdate(id));
+
+    publishProductButton.innerHTML = "Update Product";
+    switchToTab("#tab-3");
+  } catch (error) {
+    console.log("Error", error);
+  }
+}
+
+async function handleUpdate(id) {
+  try {
+    let updatedProduct = {
+      name: productName.value.trim().toLowerCase(),
+      description: productDescription.value.trim()
+        ? productDescription.value.toLowerCase()
+        : "No description provided",
+      price: productPrice.value.trim(),
+    };
+
+    const updateResponse = await fetch(`${api}/${id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(updatedProduct),
+    });
+
+    if (!updateResponse.ok) {
+      throw new Error("Faild to fetch this product.");
+    }
+    displaySuccessMessage("Product Updated Successfully");
+    publishProductButton.innerHTML === "Publish Product";
+
+    clearData();
+
+    switchToTab("#tab-2");
+    fetchProducts();
+  } catch (error) {
+    console.log("Error", error);
+  }
+}
+
+function switchToTab(tabId) {
+  removeSuccessMess();
+  removeActiveTab();
+  $(tabId).addClass("active").hide().fadeIn(1000);
+}
+
+function populateFormFields(responseData) {
+  productName.value = responseData.name;
+  productDescription.value = responseData.description;
+  productPrice.value = responseData.price;
+}
+
+async function removeProduct(id) {
+  const response = await fetch(`${api}/${id}`, {
+    method: "DELETE",
+  });
+
+  try {
+    if (!response.ok) {
+      throw new Error("Faild to delete product.");
+    }
+
+    fetchProducts();
+  } catch (error) {
+    console.log("Error", error);
+  }
+}
+
+function displayAddProductFrom() {
+  removeSuccessMess();
+  removeActiveTab();
+
+  $("#tab-3").addClass("active").hide().fadeIn(1000);
+}
+
+function removeSuccessMess() {
+  const successMessageContainer = document.querySelector(
+    ".success-message-container"
+  );
+  successMessageContainer.style.display = "none";
+}
+
+function removeActiveTab() {
   AllTabs.forEach((tab) => {
     tab.classList.remove("active");
   });
-
-  const successMessage = document.querySelector(".success-message");
-  successMessage.style.display = "none";
-
-  $("#tab-3").addClass("active").hide().fadeIn(1000);
-
-  productTitle.value = product.title;
-  productDescription.value = product.description;
-  productCategory.value = product.category;
-  productPrice.value = product.price;
-
-  if (product.image) {
-    const imgElement = document.createElement("img");
-    imgElement.src = product.image;
-    imgElement.alt = 'product';
-
-    uploadedImgContainer.innerHTML = "";
-    uploadedImgContainer.appendChild(imgElement);
-  }
 }
 
 fetchProducts();

@@ -257,6 +257,7 @@ header .user-img img {
   border-top: 1px solid var(--icons-color);
   padding: 0px 20px;
   overflow-x: auto;
+  width: 100%;
 }
 
 .body-content .tabs #tab-2 .body .products-table th {
@@ -312,6 +313,7 @@ header .user-img img {
   color: var(--text-color);
   font-size: 14px;
   padding: 15px;
+  z-index: 1000;
 }
 
 .body-content .tabs #tab-2 .body .products-table tbody .product-img {
@@ -333,6 +335,14 @@ header .user-img img {
   font-size: 14px;
 }
 
+.body-content .tabs #tab-2 .body .products-table tbody .product-description{
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+}
+
+
 .body-content .tabs #tab-2 .body .products-table tbody .submenu {
   margin: 0;
 }
@@ -344,11 +354,21 @@ header .user-img img {
 .body-content .tabs #tab-2 .ellipsis-menu {
   position: absolute;
   left: 50px;
-  top: 45px;
+  /* top: 45px; */
+  top: 8px;
 }
 
 .body-content .tabs #tab-2 .ellipsis-menu li:not(:last-child) {
   margin-bottom: 5px;
+}
+
+.body-content .tabs #tab-2 .ellipsis-menu li a {
+  padding: 5px 10px;
+  transition: var(--main-transition);
+}
+
+.body-content .tabs #tab-2 .ellipsis-menu li:hover a {
+  background-color: #f5f5f50a;
 }
 
 /* tab-3 */
@@ -359,7 +379,9 @@ header .user-img img {
 .body-content .tabs #tab-3 .body textarea {
   height: 250px;
   resize: none;
+
 }
+
 
 .body-content .tabs #tab-3 .body .dropzone {
   border: 1px solid var(--icons-color);
@@ -402,19 +424,19 @@ header .user-img img {
   width: auto;
 }
 
-.body-content .tabs #tab-3 .body .success-message {
+.body-content .tabs #tab-3 .body .success-message-container {
   text-align: center;
   color: green;
   font-size: 20px;
   display: none;
 }
 
-.body-content .tabs #tab-3 .body .success-message p {
+.body-content .tabs #tab-3 .body .success-message-container .success-message {
   margin-bottom: 0;
   display: inline-block;
 }
 
-.body-content .tabs #tab-3 .body .success-message a {
+.body-content .tabs #tab-3 .body .success-message-container a {
   text-decoration: underline;
   font-size: 16px;
 }

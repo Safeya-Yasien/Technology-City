@@ -1,7 +1,6 @@
 const bar = document.querySelector(".bar"),
   sideBar = document.querySelector(".sidebar"),
   dropDown = document.querySelectorAll(".dropdown"),
-  // subMenu = document.querySelector(".submenu"),
   tabLinks = document.querySelectorAll(".tab"),
   menuLinks = document.querySelectorAll(".menu-link");
 
@@ -30,14 +29,12 @@ menuLinks.forEach((link) => {
 
     let menuLink = link.getAttribute("data-area-tab");
 
-    // let tabId = document.getElementById(menuLink);
     let tabId = $("#" + menuLink);
 
     tabLinks.forEach((tab) => {
       tab.classList.remove("active");
     });
 
-    // tabId.classList.add("active");
     tabId.addClass("active").hide().fadeIn(1000);
   });
 });
