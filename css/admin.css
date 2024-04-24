@@ -260,6 +260,10 @@ header .user-img img {
   width: 100%;
 }
 
+.body-content .tabs #tab-2 .body .products-table table {
+  width: 100%;
+}
+
 .body-content .tabs #tab-2 .body .products-table th {
   color: var(--text-color);
   text-transform: uppercase;
@@ -335,13 +339,12 @@ header .user-img img {
   font-size: 14px;
 }
 
-.body-content .tabs #tab-2 .body .products-table tbody .product-description{
+.body-content .tabs #tab-2 .body .products-table tbody .product-description {
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 3;
   overflow: hidden;
 }
-
 
 .body-content .tabs #tab-2 .body .products-table tbody .submenu {
   margin: 0;
@@ -379,9 +382,7 @@ header .user-img img {
 .body-content .tabs #tab-3 .body textarea {
   height: 250px;
   resize: none;
-
 }
-
 
 .body-content .tabs #tab-3 .body .dropzone {
   border: 1px solid var(--icons-color);
