@@ -369,6 +369,10 @@ ul {
 }
 
 /* products */
+.products {
+  margin-bottom: 50px;
+}
+
 .products .products-content .box {
   background-color: var(--black-color);
   padding: 20px;
@@ -455,6 +459,20 @@ ul {
 
 .products .products-content .product-footer .product-price i:hover {
   color: var(--hover-color);
+}
+
+.products .show-more {
+  padding: 10px 25px;
+  display: block;
+  margin: 10px auto 0;
+  font-size: 16px;
+  border: 1px solid var(--hover-color);
+  background-color: var(--hover-color);
+  border-radius: 50px;
+  transition: var(--main-transition) all linear;
+  font-family: inherit;
+  font-weight: bold;
+  color: var(--white-color);
 }
 
 /* contact */

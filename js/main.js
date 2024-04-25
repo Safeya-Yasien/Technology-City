@@ -1,4 +1,8 @@
 const landingPage = document.querySelector(".landing");
+const productsContent = document.querySelector(".products-content");
+const productRow = document.querySelector("#product-row");
+const showMoreBtn = document.querySelector("#show-more");
+
 const imgs = [
   "imgs/wallpaperflare-2.jpg",
   "imgs/wallpaperflare-3.jpg",
@@ -24,23 +28,30 @@ function changeLandingBackground() {
 // display products
 async function displayData() {
   const apiData = await fetchData();
-  const productsContent = document.querySelector(".products-content");
 
+  displayProducts(apiData.slice(0, 6));
+
+  showMoreBtn.addEventListener("click", () => {
+    window.location.href = "all_products.html";
+  });
+}
+
+function displayProducts(products) {
   let html = "";
 
-  for (let i = 0; i < apiData.length; i++) {
+  for (const product of products) {
     html += `
       <div class="col-lg-4 col-md-4 col-sm-6 mb-4">
         <div class="box" onclick='openProductPage(${JSON.stringify(
-          apiData[i].id
+          product.id
         )})'>
           <div class="product-header">
-            <h2>${apiData[i].name}</h2>
-            <p>${apiData[i].description} </p>
+            <h2>${product.name}</h2>
+            <p>${product.description} </p>
           </div>
           <div class="product-footer">
             <div class="product-price">
-              <p>${apiData[i].price}$</p>
+              <p>${product.price}$</p>
               <i class="fa-solid fa-cart-shopping"></i>
             </div>
           </div>
@@ -48,8 +59,7 @@ async function displayData() {
       </div>
     `;
   }
-
-  productsContent.innerHTML = `<div class="row">${html}</div>`;
+  productRow.innerHTML = html;
 }
 
 function openProductPage(productId) {
