@@ -58,7 +58,6 @@ signUpForm.addEventListener("submit", async function (event) {
 
     if (response.ok) {
       console.log("registration successful");
-      //   signUpForm.reset();
       redirectToLogin();
     } else {
       console.error("registration failed:", responseData.message);
