@@ -36,6 +36,9 @@ signUpForm.addEventListener("submit", async function (event) {
     return;
   }
 
+  //   console.log('success')
+  //   redirectToLogin()
+
   const requestBody = {
     name: name,
     email: email,

@@ -23,6 +23,9 @@ loginForm.addEventListener("submit", async function (event) {
     password: password,
   };
 
+  //   console.log("success")
+  //   redirectToHome()
+
   try {
     const response = await fetch(api, {
       method: "POST",
