@@ -36,6 +36,11 @@ signUpForm.addEventListener("submit", async function (event) {
     return;
   }
 
+  //   console.log("Registration successful!");
+  //   signUpForm.reset();
+  //   redirectToLogin();
+  // });
+
   const requestBody = {
     name: name,
     emial: email,
@@ -55,7 +60,8 @@ signUpForm.addEventListener("submit", async function (event) {
 
     if (response.ok) {
       console.log("registration successful");
-      signUpForm.reset();
+      //   signUpForm.reset();
+      redirectToLogin();
     } else {
       console.error("registration failed:", responseData.message);
     }
@@ -63,3 +69,9 @@ signUpForm.addEventListener("submit", async function (event) {
     console.error("registration failed:", responseData.message);
   }
 });
+
+function redirectToLogin() {
+  setTimeout(() => {
+    window.location.href = "login.html";
+  }, 3000);
+}

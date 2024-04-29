@@ -35,7 +35,8 @@ loginForm.addEventListener("submit", async function (event) {
 
     if (response.ok) {
       console.log("Login successful!");
-      loginForm.reset();
+      //   loginForm.reset();
+      redirectToHome();
     } else {
       console.error("Login failed:", responseData.message);
     }
@@ -43,3 +44,9 @@ loginForm.addEventListener("submit", async function (event) {
     console.error("Login Faild");
   }
 });
+
+function redirectToHome() {
+  setTimeout(() => {
+    window.location.href = "index.html";
+  }, 3000);
+}
