@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/login.css" />
+    <link rel="stylesheet" href="css/register.css" />
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <title>Education City</title>
+  </head>
+  <body>
+    <div class="register">
+      <div class="container">
+        <div class="row">
+          <div class="col">
+            <div class="register-container">
+              <h1>Sign up</h1>
+              <form>
+                <div class="form-group">
+                  <i class="fa-solid fa-user"></i>
+                  <input type="text" placeholder="Your Name" id="name"/>
+                </div>
+                <div class="form-group">
+                  <i class="fa-solid fa-envelope"></i>
+                  <input type="email" placeholder="Your Email" id="email"/>
+                </div>
+                <div class="form-group">
+                  <i class="fa-solid fa-lock"></i>
+                  <input type="password" placeholder="Password" id="password"/>
+                </div>
+                <div class="form-group">
+                  <i class="fa-solid fa-lock"></i>
+                  <input type="password" placeholder="Repeat your password" id="repeat-password"/>
+                </div>
+                <div class="form-group">
+                  <input type="checkbox" id="agree-term" />
+                  <label for="agree-term">
+                    I agree all statements in
+                    <a href="#">Terms of service</a></label
+                  >
+                </div>
+                <div class="form-group form-button">
+                  <input
+                    type="submit"
+                    name="signup"
+                    id="signup"
+                    class="form-submit"
+                    value="Sign Up"
+                  />
+                </div>
+              </form>
+              <p class="have-acount">
+                Already hav an acount? <a href="login.html">Login</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/register.js"></script>
+  </body>
+</html>
