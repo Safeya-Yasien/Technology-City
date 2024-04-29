@@ -43,7 +43,7 @@ signUpForm.addEventListener("submit", async function (event) {
 
   const requestBody = {
     name: name,
-    emial: email,
+    email: email,
     password: password,
   };
 

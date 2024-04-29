@@ -19,6 +19,10 @@ loginForm.addEventListener("submit", async function (event) {
     return;
   }
 
+  //   console.log("Login successful!");
+  //   redirectToHome();
+  // });
+
   const responseBody = {
     emial: email,
     password: password,
