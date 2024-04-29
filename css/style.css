@@ -130,6 +130,7 @@ ul {
 
 .navbar .user-icons {
   margin-left: auto;
+  font-size: 14px;
 }
 
 .navbar .user-icons .lang {
@@ -137,23 +138,22 @@ ul {
   color: var(--white-color);
 }
 
-.navbar .user-icons a {
-  color: var(--white-color);
-  padding: 0 10px;
+.navbar .user-icons .login-register {
+  display: flex;
+  align-items: center;
 }
 
 .navbar .user-icons .user {
+  color: var(--white-color);
+  padding: 0 10px;
   transition: var(--main-transition);
-  -webkit-transition: var(--main-transition);
-  -moz-transition: var(--main-transition);
-  -ms-transition: var(--main-transition);
-  -o-transition: var(--main-transition);
 }
-
 .navbar .user-icons .user:hover {
   color: var(--hover-color);
 }
-
+.navbar .user-icons #logout {
+  display: none;
+}
 .navbar i {
   cursor: pointer;
 }

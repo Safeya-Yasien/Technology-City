@@ -1,5 +1,4 @@
 const loginForm = document.querySelector(".login form");
-
 const api = "http://127.0.0.1:5000/api/authenticate";
 
 loginForm.addEventListener("submit", async function (event) {
@@ -19,12 +18,8 @@ loginForm.addEventListener("submit", async function (event) {
     return;
   }
 
-  //   console.log("Login successful!");
-  //   redirectToHome();
-  // });
-
   const responseBody = {
-    emial: email,
+    email: email,
     password: password,
   };
 
@@ -39,7 +34,6 @@ loginForm.addEventListener("submit", async function (event) {
 
     if (response.ok) {
       console.log("Login successful!");
-      //   loginForm.reset();
       redirectToHome();
     } else {
       console.error("Login failed:", responseData.message);

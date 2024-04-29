@@ -108,7 +108,7 @@ body {
   width: 100%;
 }
 
-.login .submit input {
+.login .submit-container input {
   padding: 10px;
   background: var(--main-color);
   color: #000;
