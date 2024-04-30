@@ -11,7 +11,15 @@ uploadImgButton.addEventListener("change", uploadImg);
 
 async function addProduct() {
   if (productName.value === "" || productPrice.value === "") {
+    // || !uploadedImgContainer.querySelector("img"))
+
     return;
+  }
+
+  let imgSrc = null;
+  const uploadedImage = uploadedImgContainer.querySelector("img");
+  if (uploadedImage) {
+    imgSrc = uploadedImage.src;
   }
 
   let newProduct = {
@@ -19,6 +27,7 @@ async function addProduct() {
     description: productDescription.value.trim()
       ? productDescription.value.toLowerCase()
       : "No description provided",
+    image: imgSrc,
     price: productPrice.value.trim(),
   };
 

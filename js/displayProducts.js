@@ -29,7 +29,7 @@ function displayProducts(apiData) {
         </div>
     </td>
     <td>
-        <img src='' alt=''>
+        <img src='${apiData[i].image}' alt=''>
     </td>
     <td>
         <a class="product-name" href="#">
