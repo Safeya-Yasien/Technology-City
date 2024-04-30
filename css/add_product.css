@@ -1,0 +1,75 @@
+.body-content #tab-3 .label {
+  color: var(--white-color);
+}
+
+.body-content #tab-3 .body textarea {
+  height: 250px;
+  resize: none;
+}
+
+.body-content #tab-3 .body .dropzone {
+  border: 1px solid var(--icons-color);
+  background-color: var(--dark-color);
+  border-radius: 6px;
+  text-align: center;
+  color: var(--text-color);
+  padding: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.body-content #tab-3 .body .dropzone #file {
+  display: none;
+}
+
+.body-content #tab-3 .body .dropzone img {
+  margin-top: 1rem;
+  cursor: pointer;
+}
+/* .body-content #tab-3 .dropzone .img-view{
+    width: 100%;
+    height: 100%;
+
+} */
+/* 
+.body-content #tab-3 .dropzone .img-view img{
+    width: 100%;
+} */
+
+.body-content #tab-3 .body .dropzone .uploaded-img {
+  margin-top: 10px;
+}
+
+.body-content #tab-3 .body .dropzone .uploaded-img img {
+  width: 100%;
+}
+
+.body-content #tab-3 .body .dropzone .uploaded-img button {
+  margin-top: 15px;
+}
+
+.body-content #tab-3 .body .btn-groups {
+  text-align: center;
+}
+
+.body-content #tab-3 .body .btn-groups .btn {
+  width: auto;
+}
+
+.body-content #tab-3 .body .success-message-container {
+  text-align: center;
+  color: green;
+  font-size: 20px;
+  display: none;
+}
+
+.body-content #tab-3 .body .success-message-container .success-message {
+  margin-bottom: 0;
+  display: inline-block;
+}
+
+.body-content #tab-3 .body .success-message-container a {
+  text-decoration: underline;
+  font-size: 16px;
+}

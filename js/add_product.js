@@ -1,25 +1,29 @@
-const productName = document.querySelector("#product-title"),
+const api = "http://127.0.0.1:5000/api/products",
+  productName = document.querySelector("#product-title"),
   productDescription = document.querySelector("#product-description"),
+  productCategory = document.querySelector("#product-category"),
   productPrice = document.querySelector("#product-price"),
   publishProductButton = document.querySelector("#publish-product-button"),
   discardProductButton = document.querySelector("#discard-product-button"),
   uploadImgButton = document.querySelector("#file"),
   uploadedImgContainer = document.querySelector(".uploaded-img");
+
+let uploadedImgUrl = "";
+
+// events
 publishProductButton.addEventListener("click", addProduct);
 discardProductButton.addEventListener("click", clearData);
 uploadImgButton.addEventListener("change", uploadImg);
 
 async function addProduct() {
-  if (productName.value === "" || productPrice.value === "") {
-    // || !uploadedImgContainer.querySelector("img"))
-
+  // check if all required fileds are filled
+  if (
+    productName.value === "" ||
+    productPrice.value === "" ||
+    productCategory.value === "" ||
+    uploadedImgUrl === ""
+  ) {
     return;
-  }
-
-  let imgSrc = null;
-  const uploadedImage = uploadedImgContainer.querySelector("img");
-  if (uploadedImage) {
-    imgSrc = uploadedImage.src;
   }
 
   let newProduct = {
@@ -27,16 +31,19 @@ async function addProduct() {
     description: productDescription.value.trim()
       ? productDescription.value.toLowerCase()
       : "No description provided",
-    image: imgSrc,
+    category: productCategory.value.trim(),
+    image_url: uploadedImgUrl,
     price: productPrice.value.trim(),
   };
+
+  console.log(newProduct);
 
   try {
     let requestMethod = "POST";
 
-    if (publishProductButton.innerHTML === "Update Product") {
-      requestMethod = "PUT";
-    }
+    // if (publishProductButton.innerHTML === "Update Product") {
+    //   requestMethod = "PUT";
+    // }
 
     const response = await fetch(api, {
       method: requestMethod,
@@ -45,7 +52,11 @@ async function addProduct() {
       },
       body: JSON.stringify(newProduct),
     });
+
+    // test api
     console.log(response);
+    const responseData = await response.json();
+    console.log("response data", responseData);
 
     if (!response.ok) {
       throw new Error("Faild to add/update product.");
@@ -66,9 +77,11 @@ async function addProduct() {
   }
 }
 
+// clearn data from input fields
 function clearData() {
   productName.value = "";
   productDescription.value = "";
+  productCategory.value = "";
   productPrice.value = "";
 
   const uploadedImage = uploadedImgContainer.querySelector("img");
@@ -83,37 +96,28 @@ function clearData() {
 
 // upload img
 function uploadImg(event) {
-  const file = event.target.files[0];
+  let image = document.getElementById("output");
+  image.src = URL.createObjectURL(event.target.files[0]);
 
-  if (file) {
-    const reader = new FileReader();
+  uploadedImgUrl = image.src;
+  console.log("Uploaded image URL:", uploadedImgUrl);
 
-    reader.onload = (e) => {
-      const imgSrc = e.target.result;
+  const deleteButton = document.createElement("button");
+  deleteButton.className = "btn";
+  deleteButton.textContent = "Delete";
 
-      const imgElement = document.createElement("img");
-      imgElement.src = imgSrc;
-      imgElement.alt = "product";
+  deleteButton.addEventListener("click", () => {
+    uploadedImgContainer.removeChild(deleteButton);
+    image.src = "";
+    uploadImgButton.removeEventListener("change", uploadImg);
+    uploadImgButton.addEventListener("change", uploadImg);
+    uploadedImgUrl = "";
+  });
 
-      const deleteButton = document.createElement("button");
-      deleteButton.className = "btn";
-      deleteButton.textContent = "Delete";
-      deleteButton.addEventListener("click", function () {
-        uploadedImgContainer.removeChild(imgElement);
-        uploadedImgContainer.removeChild(deleteButton);
-
-        uploadImgButton.value = "";
-        uploadImgButton.removeEventListener("change", uploadImg);
-        uploadImgButton.addEventListener("change", uploadImg);
-      });
-
-      uploadedImgContainer.appendChild(imgElement);
-      uploadedImgContainer.appendChild(deleteButton);
-    };
-    reader.readAsDataURL(file);
-  }
+  uploadedImgContainer.appendChild(deleteButton);
 }
 
+// need fix
 // if product created successfully
 function displaySuccessMessage(message) {
   const successMessageCotainer = document.querySelector(
@@ -127,6 +131,7 @@ function displaySuccessMessage(message) {
   productsPageLink.addEventListener("click", redirectToProductsPage);
 }
 
+// need fix
 function redirectToProductsPage() {
   const AllTabs = document.querySelectorAll(".tab");
   const tabTwo = document.querySelector("#tab-2");
