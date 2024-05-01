@@ -1,9 +1,10 @@
+const api = "http://127.0.0.1:5000/api/products";
+
 async function getProductData() {
   const queryString = window.location.search;
   const urlParams = new URLSearchParams(queryString);
   const productId = urlParams.get("id");
   const response = await fetch(`${api}/${productId}`);
-
   const apiData = await response.json();
 
   displayProduct(apiData);

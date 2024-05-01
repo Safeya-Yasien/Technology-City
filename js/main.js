@@ -1,3 +1,4 @@
+const api = "http://127.0.0.1:5000/api/products";
 const landingPage = document.querySelector(".landing");
 const productsContent = document.querySelector(".products-content");
 const productRow = document.querySelector("#product-row");
@@ -25,6 +26,12 @@ function changeLandingBackground() {
   setTimeout(() => changeLandingBackground(), 3000);
 }
 
+async function fetchData() {
+  const response = await fetch(api);
+  const apiData = await response.json();
+  return apiData;
+}
+
 // display products
 async function displayData() {
   const apiData = await fetchData();
@@ -45,6 +52,9 @@ function displayProducts(products) {
         <div class="box" onclick='openProductPage(${JSON.stringify(
           product.id
         )})'>
+          <div class='product-img'>
+            <img src='${product.image_url}' alt=''>
+          </div>
           <div class="product-header">
             <h2>${product.name}</h2>
             <p>${product.description} </p>

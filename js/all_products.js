@@ -1,5 +1,5 @@
+const api = "http://127.0.0.1:5000/api/products";
 const productsCategories = document.querySelector(".products-categories");
-productsCategories.style.marginTop = "150px";
 
 async function displayAllProducts() {
   const response = await fetch(api);
@@ -14,6 +14,9 @@ async function displayAllProducts() {
           <div class="box" onclick='openProductPage(${JSON.stringify(
             product.id
           )})'>
+          <div class='product-img'>
+            <img src='${product.image_url}' alt=''>
+          </div>
             <div class="product-header">
               <h2>${product.name}</h2>
               <p>${product.description}</p>
@@ -21,7 +24,7 @@ async function displayAllProducts() {
             <div class="product-footer">
               <div class="product-price">
                 <p>${product.price}$</p>
-                <i class="fa-solid fa-cart-shopping"></i>
+                <p><i class="fa-solid fa-cart-shopping"></i></p>
               </div>
             </div>
           </div>
