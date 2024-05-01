@@ -1,0 +1,26 @@
+.content {
+  padding: 20px;
+}
+@media (max-width: 991px) {
+  .content .row > div:not(:last-child) {
+    margin-bottom: 20px;
+  }
+}
+.home-top-box {
+  box-shadow: 0 0 8px rgba(255, 255, 255, 50%);
+  padding: 20px;
+  text-align: center;
+}
+
+.home-top-box .total-number {
+  color: var(--main-color);
+  color: var(--hover-color);
+  font-weight: bold;
+  font-size: 30px;
+  margin-bottom: 0;
+}
+.home-top-box .total-description {
+  color: var(--text-color);
+  font-size: 20px;
+  margin-bottom: 0;
+}

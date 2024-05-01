@@ -164,7 +164,7 @@ header .user-img img {
 .body-content .tabs .tab.active {
   display: block;
 }
-/* tab */
+/* start general tab */
 .body-content .tab .head {
   padding: 20px;
 }
@@ -177,22 +177,7 @@ header .user-img img {
 .body-content .tab .body {
   margin-top: 50px;
 }
-
-.body-content .tabs #tab-2 .body .top-bar {
-  padding: 0px 20px;
-}
-
-.body-content .tab .body .top-bar ul li a {
-  color: var(--white-color);
-}
-
-.body-content #tab-2 .body .top-bar ul li a span {
-  color: var(--text-color);
-}
-
-.body-content .tabs #tab-2 .body .top-bar .search input {
-  padding-left: 40px;
-}
+/* end general tab */
 
 .body-content .tab .body input,
 .body-content .tab .body textarea {
@@ -204,14 +189,6 @@ header .user-img img {
 .body-content .tab .body input::placeholder,
 .body-content .tab .body textarea::placeholder {
   color: var(--text-color);
-}
-
-.body-content .tabs #tab-2 .body .top-bar .search i {
-  color: var(--icons-color);
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  left: 10px;
 }
 
 .body-content .tab .body .btn {
@@ -227,146 +204,6 @@ header .user-img img {
   outline: none;
   box-shadow: none;
   background-color: #222834;
-}
-
-.body-content .tabs #tab-2 .body .top-bar .btn-groups .btn i {
-  margin-left: 8px;
-  font-size: 14px;
-  transform: translateY(3px);
-  -webkit-transform: translateY(3px);
-  -moz-transform: translateY(3px);
-  -ms-transform: translateY(3px);
-  -o-transform: translateY(3px);
-}
-
-.body-content .tabs #tab-2 .body .top-bar .add-product .btn i {
-  font-size: 14px;
-  margin-right: 8px;
-}
-
-.body-content .tabs #tab-2 .body .products-table {
-  background-color: var(--dark-color);
-  margin-top: 50px;
-  width: 100%;
-  min-height: 100vh;
-  border-top: 1px solid var(--icons-color);
-  padding: 0px 20px;
-  overflow-x: auto;
-  width: 100%;
-}
-
-.body-content .tabs #tab-2 .body .products-table table {
-  width: 100%;
-}
-
-.body-content .tabs #tab-2 .body .products-table th {
-  color: var(--text-color);
-  text-transform: uppercase;
-  padding: 15px;
-  width: calc(100% / 7);
-  cursor: pointer;
-}
-
-.body-content .tabs .tab .body .products-table th:nth-child(1) {
-  width: 5%;
-}
-
-.body-content .tabs .tab .body .products-table th:nth-child(2) {
-  width: 10%;
-}
-
-.body-content .tabs .tab .body .products-table th:nth-child(3) {
-  width: 25%;
-}
-
-.body-content .tabs .tab .body .products-table th:nth-child(4) {
-  width: 15%;
-}
-
-.body-content .tabs .tab .body .products-table th:nth-child(5) {
-  width: 20%;
-}
-
-.body-content .tabs .tab .body .products-table th:nth-child(6) {
-  width: 20%;
-}
-
-.body-content .tabs .tab .body .products-table th:nth-child(7) {
-  width: 15%;
-}
-
-.body-content .tabs .tab .body .products-table .form-check-input {
-  background-color: var(--dark-color);
-  border: 1px solid var(--icons-color);
-}
-
-.body-content .tabs .tab .body .products-table .form-check-input:checked {
-  background-color: var(--hover-color);
-}
-
-.body-content .tabs .tab .body .products-table tbody tr {
-  border-top: 1px solid var(--icons-color);
-}
-
-.body-content .tabs .tab .body .products-table tbody tr td {
-  color: var(--text-color);
-  font-size: 14px;
-  padding: 15px;
-  z-index: 1000;
-}
-
-.body-content .tabs #tab-2 .body .products-table tbody .product-img {
-  border: 1px solid var(--icons-color);
-  display: block;
-  width: fit-content;
-  border-radius: 9px;
-}
-
-.body-content .tabs #tab-2 .body .products-table tbody .product-img img {
-  width: 60px;
-}
-
-.body-content .tabs #tab-2 .body .products-table .product-name {
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  font-size: 14px;
-}
-
-.body-content .tabs #tab-2 .body .products-table tbody .product-description {
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 3;
-  overflow: hidden;
-}
-
-.body-content .tabs #tab-2 .body .products-table tbody .submenu {
-  margin: 0;
-}
-
-.body-content .tabs #tab-2 .ellipsis-menu.submenu {
-  padding-left: 0;
-}
-
-.body-content .tabs #tab-2 .ellipsis-menu {
-  position: absolute;
-  left: 50px;
-  /* top: 45px; */
-  top: 8px;
-}
-
-.body-content .tabs #tab-2 .ellipsis-menu li:not(:last-child) {
-  margin-bottom: 5px;
-}
-
-.body-content .tabs #tab-2 .ellipsis-menu li a {
-  padding: 5px 10px;
-  transition: var(--main-transition);
-}
-
-.body-content .tabs #tab-2 .ellipsis-menu li:hover a {
-  background-color: #f5f5f50a;
 }
 
 /* tab-3 */

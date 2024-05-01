@@ -3,7 +3,7 @@ const productsAddProductButton = document.querySelector(
 );
 const AllTabs = document.querySelectorAll(".tab");
 
-productsAddProductButton.addEventListener("click", displayAddProductFrom);
+productsAddProductButton.addEventListener("click", redirectToAddProductPage);
 
 async function fetchProducts() {
   const response = await fetch(api);
@@ -15,21 +15,20 @@ async function fetchProducts() {
 function displayProducts(apiData) {
   console.log(apiData);
 
-  const tbody = document.querySelector("#tab-2 .products-table table tbody");
+  const tbody = document.querySelector("#tab-2 .display-products");
   tbody.innerHTML = "";
 
   for (let i = 0; i < apiData.length; i++) {
     const tr = document.createElement("tr");
 
     tr.innerHTML = `
-
     <td>
         <div class="form">
         <input type="checkbox" class="form-check-input" />
         </div>
     </td>
     <td>
-        <img src='${apiData[i].image_url}' alt=''>
+        <img class='product-img' src='${apiData[i].image_url}' alt=''>
     </td>
     <td>
         <a class="product-name" href="#">
@@ -94,69 +93,7 @@ function formatDate(date) {
 
 // update product
 async function updateProduct(id) {
-  try {
-    const response = await fetch(`${api}/${id}`);
-    if (!response.ok) {
-      throw new Error("Faild to fetch this product.");
-    }
-
-    const responseData = await response.json();
-    console.log(responseData);
-
-    populateFormFields(responseData);
-    publishProductButton.removeEventListener("click", handleUpdate);
-    publishProductButton.addEventListener("click", () => handleUpdate(id));
-
-    publishProductButton.innerHTML = "Update Product";
-    switchToTab("#tab-3");
-  } catch (error) {
-    console.log("Error", error);
-  }
-}
-
-async function handleUpdate(id) {
-  try {
-    let updatedProduct = {
-      name: productName.value.trim().toLowerCase(),
-      description: productDescription.value.trim()
-        ? productDescription.value.toLowerCase()
-        : "No description provided",
-      price: productPrice.value.trim(),
-    };
-
-    const updateResponse = await fetch(`${api}/${id}`, {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(updatedProduct),
-    });
-
-    if (!updateResponse.ok) {
-      throw new Error("Faild to fetch this product.");
-    }
-    displaySuccessMessage("Product Updated Successfully");
-    publishProductButton.innerHTML === "Publish Product";
-
-    clearData();
-
-    switchToTab("#tab-2");
-    fetchProducts();
-  } catch (error) {
-    console.log("Error", error);
-  }
-}
-
-function switchToTab(tabId) {
-  removeSuccessMess();
-  removeActiveTab();
-  $(tabId).addClass("active").hide().fadeIn(1000);
-}
-
-function populateFormFields(responseData) {
-  productName.value = responseData.name;
-  productDescription.value = responseData.description;
-  productPrice.value = responseData.price;
+  window.location.href = `add_product.html?productId=${id}`;
 }
 
 async function removeProduct(id) {
@@ -175,11 +112,8 @@ async function removeProduct(id) {
   }
 }
 
-function displayAddProductFrom() {
-  removeSuccessMess();
-  removeActiveTab();
-
-  $("#tab-3").addClass("active").hide().fadeIn(1000);
+function redirectToAddProductPage() {
+  window.location.href = "add_product.html";
 }
 
 function removeSuccessMess() {
@@ -187,12 +121,6 @@ function removeSuccessMess() {
     ".success-message-container"
   );
   successMessageContainer.style.display = "none";
-}
-
-function removeActiveTab() {
-  AllTabs.forEach((tab) => {
-    tab.classList.remove("active");
-  });
 }
 
 fetchProducts();

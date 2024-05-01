@@ -1,5 +1,4 @@
-const api = "http://127.0.0.1:5000/api/products",
-  productName = document.querySelector("#product-title"),
+const productName = document.querySelector("#product-title"),
   productDescription = document.querySelector("#product-description"),
   productCategory = document.querySelector("#product-category"),
   productPrice = document.querySelector("#product-price"),
@@ -14,6 +13,61 @@ let uploadedImgUrl = "";
 publishProductButton.addEventListener("click", addProduct);
 discardProductButton.addEventListener("click", clearData);
 uploadImgButton.addEventListener("change", uploadImg);
+
+// check if the url contain productid to update it
+const urlParams = new URLSearchParams(window.location.search);
+const productId = urlParams.get("productId");
+
+if (productId) {
+  fetchProductData(productId);
+}
+
+async function fetchProductData(productId) {
+  try {
+    const response = await fetch(`${api}/${productId}`);
+
+    if (!response.ok) {
+      throw new Error("Faild to fetch product data.");
+    }
+
+    const productData = await response.json();
+    console.log(productData);
+
+    // populate input fields
+    populateInputFields(productData);
+
+    // chagne publish button to update
+    publishProductButton.innerHTML = "Update Product";
+  } catch (error) {
+    console.log("Error fetching product data:", error.message);
+  }
+}
+
+function populateInputFields(product) {
+  productName.value = product.name;
+  productDescription.value = product.description;
+  productCategory.value = product.category;
+
+  // start displaying img
+  uploadedImgUrl = product.image_url;
+  document.querySelector("#output").src = uploadedImgUrl;
+  const deleteButton = document.createElement("button");
+  deleteButton.className = "btn";
+  deleteButton.textContent = "Delete";
+
+  deleteButton.addEventListener("click", () => {
+    uploadedImgUrl = "";
+    document.querySelector("#output").src = uploadedImgUrl;
+    uploadedImgContainer.removeChild(deleteButton);
+
+    uploadImgButton.removeEventListener("change", uploadImg);
+    uploadImgButton.addEventListener("change", uploadImg);
+  });
+  uploadedImgContainer.appendChild(deleteButton);
+  // end displaying img
+
+  productPrice.value = product.price;
+}
 
 async function addProduct() {
   // check if all required fileds are filled
@@ -40,12 +94,14 @@ async function addProduct() {
 
   try {
     let requestMethod = "POST";
+    let apiUrl = api;
 
-    // if (publishProductButton.innerHTML === "Update Product") {
-    //   requestMethod = "PUT";
-    // }
+    if (productId) {
+      requestMethod = "PUT";
+      apiUrl = `${api}/${productId}`;
+    }
 
-    const response = await fetch(api, {
+    const response = await fetch(apiUrl, {
       method: requestMethod,
       headers: {
         "Content-Type": "application/json",
@@ -54,9 +110,7 @@ async function addProduct() {
     });
 
     // test api
-    console.log(response);
     const responseData = await response.json();
-    console.log("response data", responseData);
 
     if (!response.ok) {
       throw new Error("Faild to add/update product.");
@@ -117,7 +171,6 @@ function uploadImg(event) {
   uploadedImgContainer.appendChild(deleteButton);
 }
 
-// need fix
 // if product created successfully
 function displaySuccessMessage(message) {
   const successMessageCotainer = document.querySelector(
@@ -131,16 +184,7 @@ function displaySuccessMessage(message) {
   productsPageLink.addEventListener("click", redirectToProductsPage);
 }
 
-// need fix
+// redirect to products page
 function redirectToProductsPage() {
-  const AllTabs = document.querySelectorAll(".tab");
-  const tabTwo = document.querySelector("#tab-2");
-
-  fetchProducts();
-
-  AllTabs.forEach((tab) => {
-    tab.classList.remove("active");
-  });
-
-  $(tabTwo).hide().fadeIn(1000);
+  window.location.href = "admin_products.html";
 }
