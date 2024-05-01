@@ -63,7 +63,7 @@ header .search input {
   -o-border-radius: 5px;
 }
 
-header .search i {
+header .search svg {
   position: absolute;
   left: 10px;
   color: var(--text-color);
