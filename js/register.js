@@ -2,47 +2,52 @@ const api = "http://127.0.0.1:5000/api/signup";
 
 const signUpForm = document.querySelector(".register form");
 
+const message = document.querySelector(".message");
+
 signUpForm.addEventListener("submit", async function (event) {
   event.preventDefault();
 
-  const name = signUpForm.querySelector("#name").value;
-  const email = signUpForm.querySelector("#email").value;
-  const password = signUpForm.querySelector("#password").value;
-  const repeatPassword = signUpForm.querySelector("#repeat-password").value;
+  const firstName = signUpForm.querySelector("#f-name").value,
+    lastName = signUpForm.querySelector("#l-name").value,
+    email = signUpForm.querySelector("#email").value,
+    password = signUpForm.querySelector("#password").value,
+    repeatPassword = signUpForm.querySelector("#repeat-password").value;
 
   // Validation
-  if (name.trim() === "") {
-    console.log("Please enter your name.");
+  if (firstName.trim() === "") {
+    message.innerHTML = "Please enter your first name.";
+    return;
+  }
+  if (lastName.trim() === "") {
+    message.innerHTML = "Please enter your last name.";
     return;
   }
 
   if (email.trim() === "") {
-    console.log("Please enter your email.");
+    message.innerHTML = "Please enter your email.";
     return;
   }
 
   if (password.trim() === "") {
-    console.log("Please enter a password.");
+    message.innerHTML = "Please enter a password.";
     return;
   }
 
   if (password !== repeatPassword) {
-    console.log("Passwords do not match.");
+    message.innerHTML = "Passwords do not match.";
     return;
   }
 
   if (!document.getElementById("agree-term").checked) {
-    console.log("Please agree to the terms of service.");
+    message.innerHTML = "Please agree to the terms of service.";
     return;
   }
 
-  //   console.log('success')
-  //   redirectToLogin()
-
   const requestBody = {
-    name: name,
     email: email,
     password: password,
+    first_name: firstName,
+    last_name: lastName,
   };
 
   try {
@@ -68,7 +73,5 @@ signUpForm.addEventListener("submit", async function (event) {
 });
 
 function redirectToLogin() {
-  setTimeout(() => {
-    window.location.href = "login.html";
-  }, 3000);
+  window.location.href = "login.html";
 }

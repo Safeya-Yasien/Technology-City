@@ -1,4 +1,5 @@
 const loginForm = document.querySelector(".login form");
+const message = document.querySelector(".message");
 const api = "http://127.0.0.1:5000/api/authenticate";
 
 loginForm.addEventListener("submit", async function (event) {
@@ -9,12 +10,12 @@ loginForm.addEventListener("submit", async function (event) {
 
   // Validation
   if (email.trim() === "") {
-    console.log("Please enter your email.");
+    message.innerHTML = "Please enter your email.";
     return;
   }
 
   if (password.trim() === "") {
-    console.log("Please enter your password.");
+    message.innerHTML = "Please enter your password.";
     return;
   }
 
@@ -23,13 +24,10 @@ loginForm.addEventListener("submit", async function (event) {
     password: password,
   };
 
-  // console.log("success");
-  // redirectToHome();
-
   try {
     const response = await fetch(api, {
       method: "POST",
-      headers: "application/json",
+      headers: { "Content-Type": "application/json" },
       body: JSON.stringify(responseBody),
     });
 
@@ -47,7 +45,5 @@ loginForm.addEventListener("submit", async function (event) {
 });
 
 function redirectToHome() {
-  setTimeout(() => {
-    window.location.href = "index.html";
-  }, 3000);
+  window.location.href = "index.html";
 }

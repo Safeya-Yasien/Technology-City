@@ -1,10 +1,13 @@
 const productsAddProductButton = document.querySelector(
   "#products-add-product"
 );
-const AllTabs = document.querySelectorAll(".tab");
+// const deleteAllBtn = document.querySelector("#delete-all");
 
+// events
 productsAddProductButton.addEventListener("click", redirectToAddProductPage);
+// deleteAllBtn.addEventListener("click", deleteAllProducts);
 
+// fetch product form api
 async function fetchProducts() {
   const response = await fetch(api);
   const apiData = await response.json();
@@ -12,6 +15,7 @@ async function fetchProducts() {
   displayProducts(apiData);
 }
 
+// display products in table
 function displayProducts(apiData) {
   console.log(apiData);
 
@@ -116,11 +120,20 @@ function redirectToAddProductPage() {
   window.location.href = "add_product.html";
 }
 
-function removeSuccessMess() {
-  const successMessageContainer = document.querySelector(
-    ".success-message-container"
-  );
-  successMessageContainer.style.display = "none";
-}
+// not work yet
+// async function deleteAllProducts() {
+//   const response = await fetch(api, {
+//     method: "DELETE",
+//   });
+
+//   try {
+//     if (!response.ok) {
+//       throw new Error("Faild to delete product.");
+//     }
+//     fetchProducts();
+//   } catch (error) {
+//     console.log("Error", error);
+//   }
+// }
 
 fetchProducts();

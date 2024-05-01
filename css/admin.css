@@ -39,7 +39,7 @@ header {
   box-shadow: 0 5px 10px rgba(0, 0, 0, 60%);
 }
 
-header .logo .bar i {
+header .logo .bar svg {
   font-size: 20px;
   color: var(--white-color);
   cursor: pointer;
@@ -75,10 +75,6 @@ header .user .user-icon li a {
   font-size: 20px;
   color: var(--white-color);
   transition: var(--main-transition);
-  -webkit-transition: var(--main-transition);
-  -moz-transition: var(--main-transition);
-  -ms-transition: var(--main-transition);
-  -o-transition: var(--main-transition);
 }
 
 header .user .user-icon li a:hover {
@@ -115,7 +111,9 @@ header .user-img img {
     text-align: center;
   }
 }
-
+.sidebar.active {
+  display: none;
+}
 .sidebar .menus .submenu,
 .body .products-table .submenu {
   margin-top: 15px;
@@ -158,12 +156,6 @@ header .user-img img {
   overflow: hidden;
 }
 
-.body-content .tabs .tab {
-  display: none;
-}
-.body-content .tabs .tab.active {
-  display: block;
-}
 /* start general tab */
 .body-content .tab .head {
   padding: 20px;
@@ -200,7 +192,6 @@ header .user-img img {
 }
 
 .body-content .tab .body .btn:hover {
-  border: none;
   outline: none;
   box-shadow: none;
   background-color: #222834;
