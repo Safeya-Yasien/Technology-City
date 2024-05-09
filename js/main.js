@@ -1,30 +1,8 @@
 const api = "http://127.0.0.1:5000/api";
-const landingPage = document.querySelector(".landing");
 const productsContent = document.querySelector(".products-content");
+const categories = document.querySelectorAll(".products-categories .category");
 const productRow = document.querySelector("#product-row");
-const showMoreBtn = document.querySelector("#show-more");
-
-const imgs = [
-  "imgs/wallpaperflare-2.jpg",
-  "imgs/wallpaperflare-3.jpg",
-  "imgs/wallpaperflare-1.jpg",
-  "imgs/wallpaperflare-4.jpg",
-  "imgs/wallpaperflare-5.jpg",
-];
-
-// change  background color
-let currentIndex = 0;
-function changeLandingBackground() {
-  landingPage.style.backgroundImage = `url('${imgs[currentIndex]}')`;
-
-  if (currentIndex == imgs.length - 1) {
-    currentIndex = 0;
-  } else {
-    currentIndex++;
-  }
-
-  setTimeout(() => changeLandingBackground(), 3000);
-}
+let filteredProducts = [];
 
 async function fetchData() {
   const response = await fetch(`${api}/products`);
@@ -32,26 +10,16 @@ async function fetchData() {
   return apiData;
 }
 
-// display products
-async function displayData() {
-  const apiData = await fetchData();
-
-  displayProducts(apiData.slice(0, 6));
-
-  showMoreBtn.addEventListener("click", () => {
-    window.location.href = "all_products.html";
-  });
-}
-
+// Display products based on the provided array of products
 function displayProducts(products) {
   let html = "";
 
   for (const product of products) {
     html += `
-      <div class="col-lg-4 col-md-4 col-sm-6 mb-4">
+      <div class="col-lg-4 col-md-4 col-sm-6 mb-4" data-id='${product.id}'>
         <div class="box" onclick='openProductPage(${JSON.stringify(
           product.id
-        )})'>
+        )})' >
           <div class='product-img'>
             <img src='${product.image_url}' alt=''>
           </div>
@@ -75,6 +43,44 @@ function displayProducts(products) {
 function openProductPage(productId) {
   window.location.href = `single_product.html?id=${productId}`;
 }
+
+async function filterProducts(valueAttribute) {
+  const apiData = await fetchData();
+  if (valueAttribute === "all") {
+    // Show all products
+    filteredProducts = apiData.slice(0, 6);
+  } else {
+    // Filter products based on category
+    filteredProducts = apiData
+      .filter(
+        (product) =>
+          product.category.toLowerCase() === valueAttribute.toLowerCase()
+      )
+      .slice(0, 6);
+  }
+  displayProducts(filteredProducts);
+}
+
+// Event listener for category filtering
+categories.forEach((category) => {
+  category.addEventListener("click", async (e) => {
+    e.preventDefault();
+    const valueAttribute = category.getAttribute("data-filter");
+    await filterProducts(valueAttribute);
+    // Remove active class from all categories and add it to the clicked category
+    categories.forEach((category) =>
+      category.classList.remove("active-portfolio")
+    );
+    category.classList.add("active-portfolio");
+  });
+});
+
+// Initial display of products
+async function displayData() {
+  await filterProducts("all");
+}
+
+displayData();
 
 // async function checkLoginStatus() {
 //   try {
@@ -107,5 +113,3 @@ function openProductPage(productId) {
 // }
 
 // window.addEventListener("load", checkLoginStatus);
-changeLandingBackground();
-displayData();

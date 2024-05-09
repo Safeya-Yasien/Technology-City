@@ -17,8 +17,6 @@ async function fetchProducts() {
 
 // display products in table
 function displayProducts(apiData) {
-  console.log(apiData);
-
   const tbody = document.querySelector("#tab-2 .display-products");
   tbody.innerHTML = "";
 

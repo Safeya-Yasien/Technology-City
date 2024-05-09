@@ -135,7 +135,7 @@ ul {
   display: flex;
   align-items: center;
 }
-.header .top-bar .user-icons .login-register.hide{
+.header .top-bar .user-icons .login-register.hide {
   display: none;
 }
 .header .top-bar .user-icons .user {
@@ -333,29 +333,27 @@ ul {
 .products-categories .list-inline a {
   display: block;
   padding: 6px 20px;
-  border: 1px solid #333;
   margin: 0 4px;
   transition: all var(--main-transition);
   background-color: var(--main-color);
   color: var(--white-color);
+  font-weight: bold;
 }
 
 .products-categories .list-inline a.active-portfolio {
   background-color: var(--hover-color);
-  color: var(--black-color);
-  font-weight: bold;
 }
 
 /* products */
 .products {
   margin-bottom: 50px;
 }
-
 .products .products-content .box {
   box-shadow: 0 0 10px;
   padding: 20px;
   border-radius: 5px;
   cursor: pointer;
+  height: 100%;
   background-color: var(--white-color);
 }
 

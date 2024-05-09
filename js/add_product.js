@@ -6,7 +6,6 @@ const productName = document.querySelector("#product-title"),
   discardProductButton = document.querySelector("#discard-product-button"),
   uploadImgButton = document.querySelector("#file"),
   uploadedImgContainer = document.querySelector(".uploaded-img");
-
 let uploadedImgUrl = "";
 
 // events
@@ -85,7 +84,7 @@ async function addProduct() {
     description: productDescription.value.trim()
       ? productDescription.value.toLowerCase()
       : "No description provided",
-    category: productCategory.value.trim(),
+    category: productCategory.value.trim().toLowerCase(),
     image_url: uploadedImgUrl,
     price: productPrice.value.trim(),
   };

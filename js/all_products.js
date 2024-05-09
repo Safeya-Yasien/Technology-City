@@ -1,8 +1,7 @@
-const api = "http://127.0.0.1:5000/api/products";
 const productsCategories = document.querySelector(".products-categories");
 
 async function displayAllProducts() {
-  const response = await fetch(api);
+  const response = await fetch(`${api}/products`);
   const apiData = await response.json();
 
   const productRow = document.getElementById("product-row");
@@ -10,7 +9,7 @@ async function displayAllProducts() {
 
   for (const product of apiData) {
     html += `
-        <div class="col-lg-4 col-md-4 col-sm-6 mb-4">
+        <div class="col-lg-4 col-md-4 col-sm-6 mb-4" data-id='${product.id}'>
           <div class="box" onclick='openProductPage(${JSON.stringify(
             product.id
           )})'>
