@@ -539,6 +539,9 @@ ul {
 footer {
   /* background-color: var(--main-color); */
   background-color: var(--black-color);
+  position: absolute;
+  left: 0;
+  width: 100%;
 }
 
 footer .btn {
