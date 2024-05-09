@@ -135,6 +135,9 @@ ul {
   display: flex;
   align-items: center;
 }
+.header .top-bar .user-icons .login-register.hide{
+  display: none;
+}
 .header .top-bar .user-icons .user {
   color: var(--white-color);
   padding: 0 10px;

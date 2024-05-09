@@ -31,10 +31,10 @@ loginForm.addEventListener("submit", async function (event) {
       body: JSON.stringify(responseBody),
     });
 
-    const responseData = await response.json();
-
+    console.log(response)
     if (response.ok) {
-      console.log("Login successful!");
+      const responseData = await response.json();
+      console.log(responseData)
       redirectToHome();
     } else {
       console.error("Login failed:", responseData.message);
@@ -44,6 +44,25 @@ loginForm.addEventListener("submit", async function (event) {
   }
 });
 
+// redirect to home page
 function redirectToHome() {
+  console.log("go to home")
+  // window.location.href = "index.html";
+  // document.querySelector(".login-register").classList.add("hide")
+
+  // setTimeout(() => {
+  //   window.location.href = "index.html";
+  // }, 2000);
+  // setTimeout(() => {
+  //   window.location.href = `index.html?loginState=${token}`;
+  // }, 2000);
   window.location.href = "index.html";
+
+  setTimeout(() => {
+    const loginRegisterIcons = document.querySelector(".login-register");
+    if (loginRegisterIcons) {
+      loginRegisterIcons.style.display = "none";
+    }
+  }, 500);
+
 }

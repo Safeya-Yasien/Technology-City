@@ -1,4 +1,4 @@
-const api = "http://127.0.0.1:5000/api/products";
+const api = "http://127.0.0.1:5000/api";
 const landingPage = document.querySelector(".landing");
 const productsContent = document.querySelector(".products-content");
 const productRow = document.querySelector("#product-row");
@@ -27,7 +27,7 @@ function changeLandingBackground() {
 }
 
 async function fetchData() {
-  const response = await fetch(api);
+  const response = await fetch(`${api}/products`);
   const apiData = await response.json();
   return apiData;
 }
@@ -76,5 +76,36 @@ function openProductPage(productId) {
   window.location.href = `single_product.html?id=${productId}`;
 }
 
+// async function checkLoginStatus() {
+//   try {
+//     const response = await fetch(`${api}/authenticate`, {
+//       // method: "POST",
+//       method: "GET",
+//       headers: {
+//         "Content-Type": "application/json",
+//         Authorization: "Bearer MY-API-KEY",
+//       },
+//       // body: JSON.stringify({'message': 'User login successful'
+//     });
+//     console.log(response);
+//   } catch (error) {
+//     console.error("Checking login status.", error);
+//   }
+// }
+
+// function checkLoginStatus() {
+//   const queryString = window.location.search;
+//   console.log(queryString);
+//   const urlParams = new URLSearchParams(queryString);
+//   console.log(urlParams);
+//   const loginState = urlParams.get("loginState");
+//   console.log(loginState);
+
+//   if (loginState){
+//     document.querySelector(".login-register").style.display='none'
+//   }
+// }
+
+// window.addEventListener("load", checkLoginStatus);
 changeLandingBackground();
 displayData();
