@@ -170,6 +170,8 @@ function uploadImg(event) {
   uploadedImgContainer.appendChild(deleteButton);
 }
 
+
+
 // if product created successfully
 function displaySuccessMessage(message) {
   const successMessageCotainer = document.querySelector(

@@ -1,6 +1,7 @@
 /* products */
 .product {
   padding-top: 50px;
+  margin-top: 50px;
 }
 .product .card-body {
   padding: 2.5rem;
@@ -47,7 +48,6 @@
   font-weight: bold;
   margin: 1rem 0;
 }
-footer{
+footer {
   bottom: 0;
-
 }
