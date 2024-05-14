@@ -11,17 +11,17 @@ async function getProductData() {
 }
 
 function displayProduct(product) {
+  console.log(product)
   let productContainer = document.querySelector(".product .card");
 
   productContainer.innerHTML = `
           <div class="row g-0">
           <div class="col-md-6">
-
+          <img src=${product.image_url}>
           </div>
           <div class="col-md-6 product-info">
           <div class="card-body">
               <h5 class="card-title">${product.name}</h5>
-
               <p class="card-text">
               ${product.description}
               </p>

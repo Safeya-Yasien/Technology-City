@@ -4,14 +4,14 @@ const productName = document.querySelector("#product-title"),
   productPrice = document.querySelector("#product-price"),
   publishProductButton = document.querySelector("#publish-product-button"),
   discardProductButton = document.querySelector("#discard-product-button"),
-  uploadImgButton = document.querySelector("#file"),
-  uploadedImgContainer = document.querySelector(".uploaded-img");
+  submitImg = document.querySelector(".submit-img "),
+  inputImg = document.getElementById("file");
 let uploadedImgUrl = "";
 
 // events
 publishProductButton.addEventListener("click", addProduct);
 discardProductButton.addEventListener("click", clearData);
-uploadImgButton.addEventListener("change", uploadImg);
+submitImg.addEventListener("click", uploadImg);
 
 // check if the url contain productid to update it
 const urlParams = new URLSearchParams(window.location.search);
@@ -73,8 +73,8 @@ async function addProduct() {
   if (
     productName.value === "" ||
     productPrice.value === "" ||
-    productCategory.value === "" ||
-    uploadedImgUrl === ""
+    productCategory.value === ""
+    // uploadedImgUrl === ""
   ) {
     return;
   }
@@ -130,6 +130,43 @@ async function addProduct() {
   }
 }
 
+// start upload img
+async function uploadImg(event) {
+  event.preventDefault();
+
+  const uploadedImage = document.querySelector("#output");
+
+  const formData = new FormData();
+
+  formData.append("inputImg", inputImg.files[0]);
+  console.log(inputImg.files);
+
+  // test before send
+  uploadedImage.src = URL.createObjectURL(inputImg.files[0]);
+  uploadedImgUrl = uploadedImage.src
+  console.log(uploadedImgUrl)
+
+  // using different endpoint
+  // try {
+  //   const response = await fetch(`${api}`, {
+  //     method: "POST",
+  //     body: formData,
+  //     headers: { "Content-Type": "multipart/form-data" },
+  //   });
+
+  //   console.log(response);
+  //   if (response.ok) {
+  //     uploadedImage.src = URL.createObjectURL(inputImg.files[0]);
+  //     uploadedImgUrl = uploadedImage.src;
+  //   }
+
+  //   // const data = await response.json();
+  //   // console.log(data);
+  // } catch (error) {
+  //   console.error("Error: ", error.message);
+  // }
+}
+
 // clearn data from input fields
 function clearData() {
   productName.value = "";
@@ -146,31 +183,6 @@ function clearData() {
     uploadedImgContainer.removeChild(deleteButton);
   }
 }
-
-// upload img
-function uploadImg(event) {
-  let image = document.getElementById("output");
-  image.src = URL.createObjectURL(event.target.files[0]);
-
-  uploadedImgUrl = image.src;
-  console.log("Uploaded image URL:", uploadedImgUrl);
-
-  const deleteButton = document.createElement("button");
-  deleteButton.className = "btn";
-  deleteButton.textContent = "Delete";
-
-  deleteButton.addEventListener("click", () => {
-    uploadedImgContainer.removeChild(deleteButton);
-    image.src = "";
-    uploadImgButton.removeEventListener("change", uploadImg);
-    uploadImgButton.addEventListener("change", uploadImg);
-    uploadedImgUrl = "";
-  });
-
-  uploadedImgContainer.appendChild(deleteButton);
-}
-
-
 
 // if product created successfully
 function displaySuccessMessage(message) {

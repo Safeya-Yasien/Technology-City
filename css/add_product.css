@@ -22,7 +22,6 @@
 .body-content #tab-3 .body .dropzone #file {
   display: none;
 }
-
 .body-content #tab-3 .body .dropzone img {
   margin-top: 1rem;
   cursor: pointer;
@@ -30,35 +29,32 @@
 .body-content #tab-3 .body .dropzone .uploaded-img {
   margin-top: 10px;
 }
-
 .body-content #tab-3 .body .dropzone .uploaded-img img {
   width: 100%;
 }
-
 .body-content #tab-3 .body .dropzone .uploaded-img button {
   margin-top: 15px;
+}
+.body-content #tab-3 .body .dropzone .submit-img{
+  text-align: center;
 }
 
 .body-content #tab-3 .body .btn-groups {
   text-align: center;
 }
-
 .body-content #tab-3 .body .btn-groups .btn {
   width: auto;
 }
-
 .body-content #tab-3 .body .success-message-container {
   text-align: center;
   color: green;
   font-size: 20px;
   display: none;
 }
-
 .body-content #tab-3 .body .success-message-container .success-message {
   margin-bottom: 0;
   display: inline-block;
 }
-
 .body-content #tab-3 .body .success-message-container a {
   text-decoration: underline;
   font-size: 16px;
