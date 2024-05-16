@@ -1,4 +1,4 @@
-const api = "http://127.0.0.1:5000/api/products";
+const api = "http://127.0.0.1:5000/api";
 const dropDown = document.querySelectorAll(".dropdown");
 const barButton = document.querySelector(".bar");
 const sideBar = document.querySelector(".sidebar");

@@ -9,7 +9,7 @@ productsAddProductButton.addEventListener("click", redirectToAddProductPage);
 
 // fetch product form api
 async function fetchProducts() {
-  const response = await fetch(api);
+  const response = await fetch(`${api}/products`);
   const apiData = await response.json();
 
   displayProducts(apiData);
@@ -99,7 +99,7 @@ async function updateProduct(id) {
 }
 
 async function removeProduct(id) {
-  const response = await fetch(`${api}/${id}`, {
+  const response = await fetch(`${api}/products/${id}`, {
     method: "DELETE",
   });
 
@@ -117,21 +117,5 @@ async function removeProduct(id) {
 function redirectToAddProductPage() {
   window.location.href = "add_product.html";
 }
-
-// not work yet
-// async function deleteAllProducts() {
-//   const response = await fetch(api, {
-//     method: "DELETE",
-//   });
-
-//   try {
-//     if (!response.ok) {
-//       throw new Error("Faild to delete product.");
-//     }
-//     fetchProducts();
-//   } catch (error) {
-//     console.log("Error", error);
-//   }
-// }
 
 fetchProducts();

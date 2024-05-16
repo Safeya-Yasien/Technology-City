@@ -31,6 +31,7 @@
 }
 .body-content #tab-3 .body .dropzone .uploaded-img img {
   width: 100%;
+  width: 250px;
 }
 .body-content #tab-3 .body .dropzone .uploaded-img button {
   margin-top: 15px;

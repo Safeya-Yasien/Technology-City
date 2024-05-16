@@ -3,15 +3,19 @@ const productName = document.querySelector("#product-title"),
   productCategory = document.querySelector("#product-category"),
   productPrice = document.querySelector("#product-price"),
   publishProductButton = document.querySelector("#publish-product-button"),
-  discardProductButton = document.querySelector("#discard-product-button"),
-  submitImg = document.querySelector(".submit-img "),
-  inputImg = document.getElementById("file");
+  discardProductButton = document.querySelector("#discard-product-button");
+const uploadImgContainer = document.querySelector(".uploaded-img"),
+  inputImg = document.getElementById("file"),
+  outputImg = document.querySelector("#output");
 let uploadedImgUrl = "";
 
 // events
 publishProductButton.addEventListener("click", addProduct);
 discardProductButton.addEventListener("click", clearData);
-submitImg.addEventListener("click", uploadImg);
+inputImg.addEventListener("change", (event) => {
+  const file = event.target.files[0];
+  uploadFile(file);
+});
 
 // check if the url contain productid to update it
 const urlParams = new URLSearchParams(window.location.search);
@@ -23,7 +27,7 @@ if (productId) {
 
 async function fetchProductData(productId) {
   try {
-    const response = await fetch(`${api}/${productId}`);
+    const response = await fetch(`${api}/products/${productId}`);
 
     if (!response.ok) {
       throw new Error("Faild to fetch product data.");
@@ -49,21 +53,22 @@ function populateInputFields(product) {
 
   // start displaying img
   uploadedImgUrl = product.image_url;
-  document.querySelector("#output").src = uploadedImgUrl;
+  outputImg.src = uploadedImgUrl;
+
   const deleteButton = document.createElement("button");
-  deleteButton.className = "btn";
+  deleteButton.classList.add("btn");
   deleteButton.textContent = "Delete";
 
-  deleteButton.addEventListener("click", () => {
-    uploadedImgUrl = "";
-    document.querySelector("#output").src = uploadedImgUrl;
-    uploadedImgContainer.removeChild(deleteButton);
+  deleteButton.addEventListener("click", (e) => {
+    e.preventDefault();
+    outputImg.src = "";
+    uploadImgContainer.removeChild(deleteButton);
 
-    uploadImgButton.removeEventListener("change", uploadImg);
-    uploadImgButton.addEventListener("change", uploadImg);
+    inputImg.removeEventListener("change", uploadFile);
+    inputImg.addEventListener("change", uploadFile);
+    uploadedImgUrl = "";
   });
-  uploadedImgContainer.appendChild(deleteButton);
-  // end displaying img
+  uploadImgContainer.appendChild(deleteButton);
 
   productPrice.value = product.price;
 }
@@ -73,12 +78,11 @@ async function addProduct() {
   if (
     productName.value === "" ||
     productPrice.value === "" ||
-    productCategory.value === ""
-    // uploadedImgUrl === ""
+    productCategory.value === "" ||
+    uploadedImgUrl === ""
   ) {
     return;
   }
-
   let newProduct = {
     name: productName.value.trim().toLowerCase(),
     description: productDescription.value.trim()
@@ -89,18 +93,16 @@ async function addProduct() {
     price: productPrice.value.trim(),
   };
 
-  console.log(newProduct);
-
   try {
     let requestMethod = "POST";
-    let apiUrl = api;
+    let apiUrl = `${api}/products`;
 
     if (productId) {
       requestMethod = "PUT";
-      apiUrl = `${api}/${productId}`;
+      apiUrl = `${api}/products/${productId}`;
     }
 
-    const response = await fetch(apiUrl, {
+    const response = await fetch(`${apiUrl}`, {
       method: requestMethod,
       headers: {
         "Content-Type": "application/json",
@@ -108,8 +110,10 @@ async function addProduct() {
       body: JSON.stringify(newProduct),
     });
 
-    // test api
-    const responseData = await response.json();
+    // console.log(response);
+
+    const data = await response.json();
+    console.log(data);
 
     if (!response.ok) {
       throw new Error("Faild to add/update product.");
@@ -131,40 +135,46 @@ async function addProduct() {
 }
 
 // start upload img
-async function uploadImg(event) {
-  event.preventDefault();
+async function uploadFile(file) {
+  let formData = new FormData();
+  formData.append("image_url", file);
 
-  const uploadedImage = document.querySelector("#output");
+  try {
+    const response = await fetch(`${api}/upload`, {
+      method: "POST",
+      body: formData,
+    });
 
-  const formData = new FormData();
+    // console.log(response);
 
-  formData.append("inputImg", inputImg.files[0]);
-  console.log(inputImg.files);
+    if (!response.ok) {
+      throw new Error("Faild to upload file");
+    }
 
-  // test before send
-  uploadedImage.src = URL.createObjectURL(inputImg.files[0]);
-  uploadedImgUrl = uploadedImage.src
-  console.log(uploadedImgUrl)
+    const data = await response.json();
 
-  // using different endpoint
-  // try {
-  //   const response = await fetch(`${api}`, {
-  //     method: "POST",
-  //     body: formData,
-  //     headers: { "Content-Type": "multipart/form-data" },
-  //   });
+    uploadedImgUrl = `//wsl.localhost/Ubuntu-20.04/home/safeyayasien/Projects/Technology-City_V3/${data.file_path}`;
 
-  //   console.log(response);
-  //   if (response.ok) {
-  //     uploadedImage.src = URL.createObjectURL(inputImg.files[0]);
-  //     uploadedImgUrl = uploadedImage.src;
-  //   }
+    outputImg.src = uploadedImgUrl;
 
-  //   // const data = await response.json();
-  //   // console.log(data);
-  // } catch (error) {
-  //   console.error("Error: ", error.message);
-  // }
+    const deleteButton = document.createElement("button");
+    deleteButton.classList.add("btn");
+    deleteButton.textContent = "Delete";
+
+    deleteButton.addEventListener("click", (e) => {
+      e.preventDefault();
+      outputImg.src = "";
+      uploadImgContainer.removeChild(deleteButton);
+
+      inputImg.removeEventListener("change", uploadFile);
+      inputImg.addEventListener("change", uploadFile);
+      uploadedImgUrl = "";
+    });
+
+    uploadImgContainer.appendChild(deleteButton);
+  } catch (error) {
+    console.error("Error: ", error.message);
+  }
 }
 
 // clearn data from input fields
@@ -173,14 +183,12 @@ function clearData() {
   productDescription.value = "";
   productCategory.value = "";
   productPrice.value = "";
+  uploadedImgUrl = "";
+  outputImg.src = "";
 
-  const uploadedImage = uploadedImgContainer.querySelector("img");
-  const deleteButton = uploadedImgContainer.querySelector("button");
-  if (uploadedImage) {
-    uploadedImgContainer.removeChild(uploadedImage);
-  }
+  const deleteButton = uploadImgContainer.querySelector(".btn");
   if (deleteButton) {
-    uploadedImgContainer.removeChild(deleteButton);
+    uploadImgContainer.removeChild(deleteButton);
   }
 }
 
