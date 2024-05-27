@@ -8,7 +8,9 @@
   --main-color: #0c202d;
   --white-color: #fff;
   --black-color: #000;
-  --hover-color: #0091ff;
+  /* --secondery-hover-color: #0091ff; */
+  --secondery-hover-color: #94d1ff;
+  --hover-color: #004275;
   --max-lines: 2;
   --main-transition: 0.4s;
 }
@@ -44,12 +46,14 @@ body {
   position: relative;
 }
 
-.special-title h4 {
+.special-title h4,
+.special-title h2 {
   font-weight: bold;
   text-transform: uppercase;
   letter-spacing: 10px;
   font-family: "Trade Winds", system-ui;
   margin-bottom: 0;
+  font-size: 24px;
 }
 
 .special-title img {
@@ -87,7 +91,7 @@ ul {
 .header .top-bar .logo img {
   width: 70px;
   border-radius: 50%;
-  border: 1px solid var(--hover-color);
+  border: 1px solid var(--secondery-secondery-hover-color);
   max-width: 100%;
 }
 .header .top-bar .logo-container {
@@ -135,7 +139,8 @@ ul {
   display: flex;
   align-items: center;
 }
-.header .top-bar .user-icons .login-register.hide {
+.header .top-bar .user-icons .login-register.hide,
+.header .top-bar .user-icons #logout.hide {
   display: none;
 }
 .header .top-bar .user-icons .user {
@@ -144,7 +149,7 @@ ul {
   transition: var(--main-transition);
 }
 .header .top-bar .user-icons .user:hover {
-  color: var(--hover-color);
+  color: var(--secondery-hover-color);
 }
 
 /* navbar  */
@@ -212,8 +217,8 @@ ul {
 }
 
 .landing .site-title h1,
-.landing .site-title h3,
-.landing .site-title p {
+.landing .site-title h2,
+.landing .site-title h3 {
   margin-bottom: 20px;
 }
 
@@ -229,9 +234,12 @@ ul {
   }
 }
 
-.landing .site-title h3 {
+.landing .site-title h2 {
   font-family: "Trade Winds", system-ui;
   margin-bottom: 20px;
+}
+.landing .site-title h3 {
+  font-size: 16px;
 }
 
 .landing .input-btn-pa {
@@ -271,45 +279,6 @@ ul {
 .input-btn-pa a svg {
   padding-right: 5px;
 }
-
-/* about */
-.about {
-  padding-top: 70px;
-  padding-bottom: 3.125rem;
-  position: relative;
-}
-
-.about .card-title {
-  color: var(--main-color);
-  font-weight: bold;
-}
-
-/* features */
-.features {
-  padding-top: 50px;
-  padding-bottom: 50px;
-  background-color: #eee;
-}
-
-.features .single-promo {
-  font-size: 25px;
-  font-weight: 200;
-  padding: 20px 10px;
-  text-align: center;
-  border: 1px solid var(--hover-color);
-  cursor: pointer;
-  transition: var(--main-transition);
-}
-
-.features .single-promo:hover {
-  background-color: var(--black-color);
-  color: var(--white-color);
-}
-
-.features .single-promo i {
-  font-size: 50px;
-}
-
 /* products */
 .products-categories {
   margin-top: 0px;
@@ -352,7 +321,6 @@ ul {
   box-shadow: 0 0 10px;
   padding: 20px;
   border-radius: 5px;
-  cursor: pointer;
   height: 100%;
   background-color: var(--white-color);
 }
@@ -370,7 +338,7 @@ ul {
 
 .products .products-content .product-header p {
   font-size: 14px;
-  color: #a7a7a7;
+  color: #424242;
   line-height: 27px;
   margin-bottom: 20px;
   overflow: hidden;
@@ -384,6 +352,7 @@ ul {
   height: 150px;
   margin: 0 auto;
   overflow: hidden;
+  cursor: pointer;
 }
 
 .products .products-content .product-img img {
@@ -408,7 +377,7 @@ ul {
 }
 
 .products .products-content .product-footer .reviews i {
-  color: var(--hover-color);
+  color: var(--secondery-hover-color);
   font-size: 12px;
 }
 
@@ -417,11 +386,6 @@ ul {
   color: var(--white-color);
   font-size: 14px;
 }
-
-/* .products .products-content .product-footer {
-  margin-top: 25px;
-} */
-
 .products .products-content .product-footer .product-price {
   display: flex;
   align-items: center;
@@ -436,6 +400,9 @@ ul {
   transition: var(--main-transition);
 }
 
+.products .products-content .product-footer .product-price .add-to-cart-button {
+  color: var(--black-color);
+}
 .products .products-content .product-footer .product-price svg:hover {
   color: var(--hover-color);
 }
@@ -485,7 +452,7 @@ ul {
 
 .contact .form-group p {
   font-size: 14px;
-  color: var(--hover-color);
+  color: var(--secondery-hover-color);
   font-weight: bold;
   padding-bottom: 11px;
 }
@@ -518,7 +485,7 @@ ul {
 .contact .form-group textarea:focus {
   outline: none;
   box-shadow: none;
-  border-bottom-color: var(--hover-color);
+  border-bottom-color: var(--secondery-hover-color);
 }
 
 .contact .form-group.mix {

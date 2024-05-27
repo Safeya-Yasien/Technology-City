@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Electronics store" />
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link
+      rel="stylesheet"
+      href="css/index.css
+    "
+    />
+    <link
+      rel="stylesheet"
+      href="css/cart.css
+    "
+    />
+
+    <!-- google font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Train+One&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Trade+Winds&display=swap"
+      rel="stylesheet"
+    />
+    <!-- favicon -->
+    <link rel="icon" type="image/x-icon" href="imgs/logoBG.jpeg" />
+    <title>Shopping Cart</title>
+  </head>
+  <body>
+    <div class="page position-relative">
+      <div class="header">
+        <div class="top-bar">
+          <div class="container">
+            <div class="row align-items-center">
+              <div class="col-6">
+                <div class="logo-container">
+                  <a class="logo" href="index.html" aria-label="home">
+                    <img src="imgs/logo.png" alt="logo" />
+                  </a>
+                  <form class="search" role="search">
+                    <i class="search-icon fa-solid fa-magnifying-glass"></i>
+                    <input
+                      class="form-control"
+                      type="search"
+                      placeholder="Search"
+                      aria-label="Search"
+                    />
+                  </form>
+                </div>
+              </div>
+              <div class="col-6">
+                <div class="user-icons">
+                  <p class="lang">en</p>
+                  <div class="login-register">
+                    <a href="login.html" class="user" aria-label="login"
+                      >Login</a
+                    >
+                    <a href="register.html" class="user" aria-label="register"
+                      >Register</a
+                    >
+                  </div>
+                  <a
+                    href="admin_home.html"
+                    class="user"
+                    id="user-profile"
+                    aria-label="admin"
+                    ><i class="fa-regular fa-circle-user"></i
+                  ></a>
+                  <a href="#" id="cart" class="user d-block" aria-label="cart"
+                    ><i class="fa-solid fa-cart-shopping"></i
+                  ></a>
+                  <a href="#" class="user" id="logout" aria-label="logout"
+                    >Logout</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <nav class="nav-bar">
+          <div class="container">
+            <div class="row">
+              <div class="col">
+                <div class="nav-bar-links">
+                  <a
+                    class="nav-link"
+                    aria-current="page"
+                    href="index.html"
+                    aria-label="home page"
+                    >Home</a
+                  >
+                  <a class="nav-link" href="about.html" aria-label="about us"
+                    >About</a
+                  >
+                  <a
+                    class="nav-link"
+                    href="all_products.html"
+                    aria-label="all products"
+                    >Products</a
+                  >
+                  <a
+                    class="nav-link"
+                    href="contact.html"
+                    aria-label="contact us"
+                    >Contact</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </nav>
+      </div>
+      <div class="cart">
+        <div class="container">
+          <div class="row">
+            <div class="col-xs-12 col-sm-12 col-lg-8">
+              <div class="shopping-cart">
+                <div class="title">
+                  <h1>Cart</h1>
+                </div>
+                <div class="table-responsive">
+                  <table class="table">
+                    <tbody>
+                      <tr class="item-cart">
+                        <td class="product-name d-flex align-items-center">
+                          <div class="product-img">
+                            <img src="imgs/proudct-phone.png" alt="phone" />
+                          </div>
+                          <div class="product-info">
+                            <a href="#">Harman Kardon Onyx Studio</a>
+                          </div>
+                        </td>
+                        <td class="product-quantity">
+                          <div class="e-quantity">
+                            <div class="quantity-button minus">-</div>
+                            <label for="quantity-number-1" class="sr-only"
+                              >Quantity</label
+                            >
+                            <input
+                              type="number"
+                              name="quantity"
+                              value="1"
+                              id="quantity-number-1"
+                            />
+                            <div class="quantity-button plus">+</div>
+                          </div>
+                        </td>
+                        <td class="total-price">
+                          <p class="price">$1,215.00</p>
+                        </td>
+                        <td class="product-remove">
+                          <a href="#" aria-label="remove item">
+                            <i class="fa-solid fa-xmark"></i>
+                          </a>
+                        </td>
+                      </tr>
+                      <tr class="item-cart">
+                        <td class="product-name d-flex align-items-center">
+                          <div class="product-img">
+                            <img src="imgs/proudct-phone.png" alt="phone" />
+                          </div>
+                          <div class="product-info">
+                            <a href="#">Harman Kardon Onyx Studio</a>
+                          </div>
+                        </td>
+                        <td class="product-quantity">
+                          <div class="e-quantity">
+                            <div class="quantity-button minus">-</div>
+                            <label for="quantity-number-2" class="sr-only"
+                              >Quantity</label
+                            >
+                            <input
+                              type="number"
+                              name="quantity"
+                              value="1"
+                              id="quantity-number-2"
+                            />
+                            <div class="quantity-button plus">+</div>
+                          </div>
+                        </td>
+                        <td class="total-price">
+                          <p class="price">$1,215.00</p>
+                        </td>
+                        <td class="product-remove">
+                          <a href="#" aria-label="remove item">
+                            <i class="fa-solid fa-xmark"></i>
+                          </a>
+                        </td>
+                      </tr>
+                      <tr class="item-cart">
+                        <td class="product-name d-flex align-items-center">
+                          <div class="product-img">
+                            <img src="imgs/proudct-phone.png" alt="phone" />
+                          </div>
+                          <div class="product-info">
+                            <a href="#">Harman Kardon Onyx Studio</a>
+                          </div>
+                        </td>
+                        <td class="product-quantity">
+                          <div class="e-quantity">
+                            <div class="quantity-button minus">-</div>
+                            <label for="quantity-number-3" class="sr-only"
+                              >Quantity</label
+                            >
+                            <input
+                              type="number"
+                              name="quantity"
+                              value="1"
+                              id="quantity-number-3"
+                            />
+                            <div class="quantity-button plus">+</div>
+                          </div>
+                        </td>
+                        <td class="total-price">
+                          <p class="price">$1,215.00</p>
+                        </td>
+                        <td class="product-remove">
+                          <a href="#" aria-label="remove item">
+                            <i class="fa-solid fa-xmark"></i>
+                          </a>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <div class="table-cart-bottom">
+                  <div class="row">
+                    <div class="col-12">
+                      <div class="form-cupon">
+                        <form
+                          class="d-flex align-items-center position-relative"
+                        >
+                          <label for="Coupon" class="sr-only"
+                            >Coupon code</label
+                          >
+                          <input
+                            type="text"
+                            placeholder="Coupon code"
+                            id="Coupon"
+                            name="Coupon"
+                            class="form-control"
+                          />
+                          <button type="submit" class="btn">
+                            Apply coupon
+                          </button>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-lg-4">
+              <div class="cart-total">
+                <div class="title">
+                  <h1>Cart totals</h1>
+                </div>
+                <div class="table-responsive">
+                  <table class="table">
+                    <tbody>
+                      <tr class="cart-subtotal">
+                        <th>Subtotal</th>
+                        <td>$ 1.215.00</td>
+                      </tr>
+                      <tr class="order-total">
+                        <th>Total</th>
+                        <td>$ 1.215.00</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <div
+                  class="cart-total-bottom d-flex align-items-center justify-content-center"
+                >
+                  <a
+                    class="btn-checkout"
+                    href="#"
+                    aria-label="proceed to checkout"
+                    >Proceed to checkout</a
+                  >
+                </div>
+                <div class="divider">
+                  <span>or</span>
+                </div>
+                <div class="cart-total-bottom pp-checkout">
+                  <a href="#" aria-label="paypal">
+                    <img src="imgs/paypal.svg" alt="paypal" />
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer class="text-center">
+        <div class="container p-4 pb-0">
+          <section>
+            <!-- Facebook -->
+            <a
+              data-mdb-ripple-init
+              class="btn text-white btn-floating m-1"
+              style="background-color: #3b5998"
+              href="#"
+              role="button"
+              aria-label="go to our facebook page"
+              ><i class="fab fa-facebook-f"></i
+            ></a>
+            <!-- Twitter -->
+            <a
+              data-mdb-ripple-init
+              class="btn text-white btn-floating m-1"
+              style="background-color: #55acee"
+              href="#"
+              role="button"
+              aria-label="go to our twitter page"
+              ><i class="fab fa-twitter"></i
+            ></a>
+            <!-- Instagram -->
+            <a
+              data-mdb-ripple-init
+              class="btn text-white btn-floating m-1"
+              style="background-color: #ac2bac"
+              href="#!"
+              role="button"
+              aria-label="go to our instagram page"
+              ><i class="fab fa-instagram"></i
+            ></a>
+            <!-- Linkedin -->
+            <a
+              data-mdb-ripple-init
+              class="btn text-white btn-floating m-1"
+              style="background-color: #0082ca"
+              href="#"
+              role="button"
+              aria-label="go to our linkedin page"
+              ><i class="fab fa-linkedin-in"></i
+            ></a>
+            <!-- Github -->
+            <a
+              data-mdb-ripple-init
+              class="btn text-white btn-floating m-1"
+              style="background-color: #333333"
+              href="#"
+              role="button"
+              aria-label="go to our github page"
+              ><i class="fab fa-github"></i
+            ></a>
+          </section>
+        </div>
+        <!-- Grid container -->
+
+        <!-- Copyright -->
+        <div class="text-center p-3 copyright">
+          © 2024 Copyright:
+          <a href="#" aria-label="go to our site">Techology-City</a>
+        </div>
+        <!-- Copyright -->
+      </footer>
+    </div>
+
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/all.min.js"></script>
+    <script src="js/cart.js"></script>
+  </body>
+</html>

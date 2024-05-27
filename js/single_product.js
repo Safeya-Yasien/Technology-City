@@ -1,4 +1,5 @@
-const api = "http://127.0.0.1:5000/api/products";
+// const api = "http://127.0.0.1:5000/api/products";
+const api = "http://196.218.124.110:5000/api/products";
 
 async function getProductData() {
   const queryString = window.location.search;
@@ -11,7 +12,7 @@ async function getProductData() {
 }
 
 function displayProduct(product) {
-  console.log(product)
+  console.log(product);
   let productContainer = document.querySelector(".product .card");
 
   productContainer.innerHTML = `

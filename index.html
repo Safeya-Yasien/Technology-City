@@ -5,11 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Electronics store" />
     <link rel="stylesheet" href="css/bootstrap.min.css" />
-    <link
-      rel="stylesheet"
-      href="css/index.css
-    "
-    />
+    <link rel="stylesheet" href="css/index.css" />
     <!-- google font -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -17,14 +13,12 @@
       href="https://fonts.googleapis.com/css2?family=Train+One&display=swap"
       rel="stylesheet"
     />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Trade+Winds&display=swap"
       rel="stylesheet"
     />
     <!-- favicon -->
-    <link rel="icon" type="image/x-icon" href="imgs/logo.jpeg" />
+    <link rel="icon" type="image/x-icon" href="imgs/logoBG.jpeg" />
     <title>Technology City</title>
   </head>
   <body>
@@ -35,7 +29,7 @@
             <div class="row align-items-center">
               <div class="col-6">
                 <div class="logo-container">
-                  <a class="logo" href="index.html">
+                  <a class="logo" href="index.html" aria-label="home">
                     <img src="imgs/logo.png" alt="logo" />
                   </a>
                   <form class="search" role="search">
@@ -53,16 +47,27 @@
                 <div class="user-icons">
                   <p class="lang">en</p>
                   <div class="login-register">
-                    <a href="login.html" class="user">Login</a>
-                    <a href="register.html" class="user">Register</a>
+                    <a href="login.html" class="user" aria-label="login"
+                      >Login</a
+                    >
+                    <a href="register.html" class="user" aria-label="register"
+                      >Register</a
+                    >
                   </div>
-                  <a href="admin_home.html" class="user" id="user-profile"
-                    ><i class="fa-regular fa-circle-user"></i
+                  <a
+                    href="admin_home.html"
+                    class="user"
+                    id="user-profile"
+                    aria-label="admin"
+                    ><i class="fa-regular fa-circle-user"></i>
+                    <span class="user-name"></span
                   ></a>
-                  <a href="#" id="cart" class="user d-block"
+                  <a href="cart.html" id="cart" class="user d-block" aria-label="cart"
                     ><i class="fa-solid fa-cart-shopping"></i
                   ></a>
-                  <a href="#" class="user" id="logout" class="">Logout</a>
+                  <a href="#" class="user" id="logout" aria-label="logout"
+                    >Logout</a
+                  >
                 </div>
               </div>
             </div>
@@ -78,11 +83,24 @@
                     class="nav-link active"
                     aria-current="page"
                     href="index.html"
+                    aria-label="home page"
                     >Home</a
                   >
-                  <a class="nav-link" href="#">About</a>
-                  <a class="nav-link" href="all_products.html">Products</a>
-                  <a class="nav-link" href="contact.html">Contact</a>
+                  <a class="nav-link" href="about.html" aria-label="about us"
+                    >About</a
+                  >
+                  <a
+                    class="nav-link"
+                    href="all_products.html"
+                    aria-label="all products"
+                    >Products</a
+                  >
+                  <a
+                    class="nav-link"
+                    href="contact.html"
+                    aria-label="contact us"
+                    >Contact</a
+                  >
                 </div>
               </div>
             </div>
@@ -94,83 +112,13 @@
         <div class="container">
           <div class="site-title text-center position-relative">
             <h1 class="site-name">Technology City</h1>
-            <h3>Electronics store</h3>
-            <p>Powering Your Passion for Electronics</p>
+            <h2>Electronics store</h2>
+            <h3>Powering Your Passion for Electronics</h3>
           </div>
           <div class="input-btn-pa mix text-center">
-            <a href="#features"> <i class="fa fa-paper-plane"></i>Shop Now </a>
-          </div>
-        </div>
-      </div>
-
-      <div class="about">
-        <div class="container">
-          <div class="special-title">
-            <h4>About</h4>
-            <img src="imgs/special-heading.png" alt="special-heading" />
-          </div>
-          <div class="card">
-            <div class="row g-0">
-              <div class="col-md-6">
-                <img
-                  src="imgs/about.jpg"
-                  class="img-fluid rounded-start"
-                  alt="about"
-                />
-              </div>
-              <div class="col-md-6">
-                <div class="card-body">
-                  <h5 class="card-title">Project Inspiration</h5>
-                  <p class="card-text">
-                    This project was born out of a shared passion for tackling
-                    real-world challenges through technology. As individuals
-                    deeply ingrained in the tech community, we often found
-                    ourselves discussing ways to leverage our skills for
-                    meaningful impact. One day, during a brainstorming session
-                    over coffee, we stumbled upon the idea of creating a
-                    platform that could streamline communication and
-                    collaboration within our local community. This sparked a
-                    fire within us to embark on a journey to bring our vision to
-                    life.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="features" id="features">
-        <div class="container">
-          <div class="special-title">
-            <h4>Features</h4>
-            <img src="imgs/special-heading.png" alt="special-heading" />
-          </div>
-          <div class="row">
-            <div class="col-md-3 mb-4 mb-md-0 col-sm-6">
-              <div class="single-promo">
-                <i class="fa fa-refresh"></i>
-                <p>30 Days return</p>
-              </div>
-            </div>
-            <div class="col-md-3 mb-4 mb-md-0 col-sm-6">
-              <div class="single-promo">
-                <i class="fa fa-truck"></i>
-                <p>Free shipping</p>
-              </div>
-            </div>
-            <div class="col-md-3 mb-4 mb-md-0 col-sm-6">
-              <div class="single-promo">
-                <i class="fa fa-lock"></i>
-                <p>Secure payments</p>
-              </div>
-            </div>
-            <div class="col-md-3 col-sm-6">
-              <div class="single-promo">
-                <i class="fa fa-gift"></i>
-                <p>New products</p>
-              </div>
-            </div>
+            <a href="#features" aria-label="shop now">
+              <i class="fa fa-paper-plane"></i> Shop Now
+            </a>
           </div>
         </div>
       </div>
@@ -190,19 +138,34 @@
                       href="#"
                       class="active-portfolio category"
                       data-filter="all"
+                      aria-label="all products"
                       >All</a
                     >
                   </li>
                   <li>
-                    <a class="category" href="#" data-filter="phones">Phones</a>
+                    <a
+                      class="category"
+                      href="#"
+                      data-filter="phones"
+                      aria-label="phones"
+                      >Phones</a
+                    >
                   </li>
                   <li>
-                    <a class="category" href="#" data-filter="laptops"
+                    <a
+                      class="category"
+                      href="#"
+                      data-filter="laptops"
+                      aria-label="laptops"
                       >Laptops</a
                     >
                   </li>
                   <li>
-                    <a class="category" href="#" data-filter="accessories"
+                    <a
+                      class="category"
+                      href="#"
+                      data-filter="accessories"
+                      aria-label="accessories"
                       >Accessories</a
                     >
                   </li>
@@ -230,48 +193,39 @@
               data-mdb-ripple-init
               class="btn text-white btn-floating m-1"
               style="background-color: #3b5998"
-              href="#!"
+              href="#"
               role="button"
+              aria-label="go to our Facebook page"
               ><i class="fab fa-facebook-f"></i
             ></a>
-
             <!-- Twitter -->
             <a
               data-mdb-ripple-init
               class="btn text-white btn-floating m-1"
               style="background-color: #55acee"
-              href="#!"
+              href="#"
               role="button"
+              aria-label="go to our Twitter page"
               ><i class="fab fa-twitter"></i
             ></a>
-
-            <!-- Google -->
-            <a
-              data-mdb-ripple-init
-              class="btn text-white btn-floating m-1"
-              style="background-color: #dd4b39"
-              href="#!"
-              role="button"
-              ><i class="fab fa-google"></i
-            ></a>
-
             <!-- Instagram -->
             <a
               data-mdb-ripple-init
               class="btn text-white btn-floating m-1"
               style="background-color: #ac2bac"
-              href="#!"
+              href="#"
               role="button"
+              aria-label="go to our Instagram page"
               ><i class="fab fa-instagram"></i
             ></a>
-
             <!-- Linkedin -->
             <a
               data-mdb-ripple-init
               class="btn text-white btn-floating m-1"
               style="background-color: #0082ca"
-              href="#!"
+              href="#"
               role="button"
+              aria-label="go to our Linkedin page"
               ><i class="fab fa-linkedin-in"></i
             ></a>
             <!-- Github -->
@@ -279,8 +233,9 @@
               data-mdb-ripple-init
               class="btn text-white btn-floating m-1"
               style="background-color: #333333"
-              href="https://github.com/Safeya-Yasien/Tech-City_V-0"
+              href="#"
               role="button"
+              aria-label="go to our Github page"
               ><i class="fab fa-github"></i
             ></a>
           </section>
@@ -290,7 +245,7 @@
         <!-- Copyright -->
         <div class="text-center p-3 copyright">
           © 2024 Copyright:
-          <a href="http://tech-city.tech/">Techology-City</a>
+          <a href="#" aria-label="go to our site">Techology-City</a>
         </div>
         <!-- Copyright -->
       </footer>

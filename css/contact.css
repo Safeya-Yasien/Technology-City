@@ -29,7 +29,7 @@
 
 .contact .form-group p {
   font-size: 14px;
-  color: var(--hover-color);
+  color: var(--secondery-hover-color);
   font-weight: bold;
   padding-bottom: 11px;
 }

@@ -1,0 +1,99 @@
+.landing {
+  background-image: url("../imgs/about_landing.jpg");
+  transition: none;
+  text-align: center;
+  display: block;
+}
+.landing .content {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+.landing::before {
+  display: none;
+}
+.landing .title {
+  color: var(--hover-color);
+  font-size: 35px;
+  margin-bottom: 20px;
+}
+.landing .desc {
+  font-size: 20px;
+  margin-bottom: 0;
+}
+/* about */
+.about {
+  padding-top: 70px;
+  padding-bottom: 3.125rem;
+  position: relative;
+}
+.about .card {
+  border: none;
+}
+.about .card-title {
+  color: var(--main-color);
+  font-weight: bold;
+  margin-bottom: 20px;
+  font-size: 20px;
+}
+.about .card-text {
+  color: #333e48;
+  line-height: 1.6;
+  font-size: 14px;
+}
+.about .accordion-item {
+  border: none;
+}
+.about .accordion-button {
+  border-radius: 0;
+  background-color: transparent;
+  box-shadow: none;
+  font-size: 18px;
+  font-weight: bold;
+}
+.about .accordion-button::after {
+  display: none;
+}
+.about .accordion-icon {
+  border: 1px solid #eee;
+  padding: 5px;
+  margin-right: 10px;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+}
+.about {
+}
+.about {
+}
+.about {
+}
+
+/* features */
+.features {
+  padding-top: 50px;
+  padding-bottom: 50px;
+  background-color: #eee;
+}
+
+.features .single-promo {
+  font-size: 25px;
+  font-weight: 200;
+  padding: 20px 10px;
+  text-align: center;
+  border: 1px solid var(--hover-color);
+  cursor: pointer;
+  transition: var(--main-transition);
+}
+
+.features .single-promo:hover {
+  background-color: var(--black-color);
+  color: var(--white-color);
+}
+
+.features .single-promo i {
+  font-size: 50px;
+}

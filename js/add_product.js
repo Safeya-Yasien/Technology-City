@@ -12,10 +12,10 @@ let uploadedImgUrl = "";
 // events
 publishProductButton.addEventListener("click", addProduct);
 discardProductButton.addEventListener("click", clearData);
-inputImg.addEventListener("change", (event) => {
-  const file = event.target.files[0];
-  uploadFile(file);
-});
+// inputImg.addEventListener("change", (event) => {
+//   const file = event.target.files[0];
+//   // uploadFile(file);
+// });
 
 // check if the url contain productid to update it
 const urlParams = new URLSearchParams(window.location.search);
@@ -74,15 +74,38 @@ function populateInputFields(product) {
 }
 
 async function addProduct() {
-  // check if all required fileds are filled
-  if (
-    productName.value === "" ||
-    productPrice.value === "" ||
-    productCategory.value === "" ||
-    uploadedImgUrl === ""
-  ) {
+  const file = inputImg.files[0];
+  console.log(file);
+  if (!file) {
+    console.error("no file");
     return;
   }
+
+  let formData = new FormData();
+  formData.append("image_url", file);
+
+  const response = await fetch(`${api}/upload`, {
+    method: "POST",
+    body: formData,
+  });
+
+  if (!response.ok) {
+    throw new Error("Faild to upload file");
+  }
+
+  const data = await response.json();
+  uploadedImgUrl = data.file_path;
+  console.log(data.file_path);
+
+  // check if all required fileds are filled
+  // if (
+  // productName.value === "" ||
+  // productPrice.value === "" ||
+  // productCategory.value === "" ||
+  // uploadedImgUrl === ""
+  // ) {
+  //   return;
+  // }
   let newProduct = {
     name: productName.value.trim().toLowerCase(),
     description: productDescription.value.trim()
@@ -90,6 +113,8 @@ async function addProduct() {
       : "No description provided",
     category: productCategory.value.trim().toLowerCase(),
     image_url: uploadedImgUrl,
+    // image_url: "C:/Users/DUBAI/Downloads/mon 1.png",
+
     price: productPrice.value.trim(),
   };
 
@@ -110,11 +135,7 @@ async function addProduct() {
       body: JSON.stringify(newProduct),
     });
 
-    // console.log(response);
-
     const data = await response.json();
-    console.log(data);
-
     if (!response.ok) {
       throw new Error("Faild to add/update product.");
     }
@@ -135,47 +156,47 @@ async function addProduct() {
 }
 
 // start upload img
-async function uploadFile(file) {
-  let formData = new FormData();
-  formData.append("image_url", file);
+// async function uploadFile(file) {
+//   let formData = new FormData();
+//   formData.append("image_url", file);
 
-  try {
-    const response = await fetch(`${api}/upload`, {
-      method: "POST",
-      body: formData,
-    });
+//   try {
+//     const response = await fetch(`${api}/upload`, {
+//       method: "POST",
+//       body: formData,
+//     });
 
-    // console.log(response);
+//     if (!response.ok) {
+//       throw new Error("Faild to upload file");
+//     }
 
-    if (!response.ok) {
-      throw new Error("Faild to upload file");
-    }
+//     const data = await response.json();
+//     return data;
+//     //     // console.log(data)
 
-    const data = await response.json();
+//     //     // uploadedImgUrl = `//wsl.localhost/Ubuntu-20.04/home/safeyayasien/Projects/Technology-City_V3/${data.file_path}`;
 
-    uploadedImgUrl = `//wsl.localhost/Ubuntu-20.04/home/safeyayasien/Projects/Technology-City_V3/${data.file_path}`;
+//     //     outputImg.src = uploadedImgUrl;
 
-    outputImg.src = uploadedImgUrl;
+//     //     const deleteButton = document.createElement("button");
+//     //     deleteButton.classList.add("btn");
+//     //     deleteButton.textContent = "Delete";
 
-    const deleteButton = document.createElement("button");
-    deleteButton.classList.add("btn");
-    deleteButton.textContent = "Delete";
+//     //     deleteButton.addEventListener("click", (e) => {
+//     //       e.preventDefault();
+//     //       outputImg.src = "";
+//     //       uploadImgContainer.removeChild(deleteButton);
 
-    deleteButton.addEventListener("click", (e) => {
-      e.preventDefault();
-      outputImg.src = "";
-      uploadImgContainer.removeChild(deleteButton);
+//     //       inputImg.removeEventListener("change", uploadFile);
+//     //       inputImg.addEventListener("change", uploadFile);
+//     //       uploadedImgUrl = "";
+//     //     });
 
-      inputImg.removeEventListener("change", uploadFile);
-      inputImg.addEventListener("change", uploadFile);
-      uploadedImgUrl = "";
-    });
-
-    uploadImgContainer.appendChild(deleteButton);
-  } catch (error) {
-    console.error("Error: ", error.message);
-  }
-}
+//     //     uploadImgContainer.appendChild(deleteButton);
+//   } catch (error) {
+//     console.error("Error: ", error.message);
+//   }
+// }
 
 // clearn data from input fields
 function clearData() {

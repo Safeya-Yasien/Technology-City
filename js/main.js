@@ -1,26 +1,92 @@
-const api = "http://127.0.0.1:5000/api";
+// const api = "http://127.0.0.1:5000/api";
+const api = "http://196.218.124.110:5000/api";
+
 const productsContent = document.querySelector(".products-content");
 const categories = document.querySelectorAll(".products-categories .category");
 const productRow = document.querySelector("#product-row");
 let filteredProducts = [];
 
 async function fetchData() {
-  const response = await fetch(`${api}/products`);
-  const apiData = await response.json();
-  return apiData;
+  try {
+    const response = await fetch(`${api}/products`);
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    // console.log(response)
+    const apiData = await response.json();
+    // return apiData;
+    displayProducts(apiData);
+  } catch (error) {
+    console.error("Error fetching data:", error.message);
+  }
 }
 
+// check if user loged in
+function isLoggedIn() {
+  const accessToken = localStorage.getItem("accessToken");
+  return accessToken !== null;
+}
+
+function updateHeaderLinks() {
+  const loginRegister = document.querySelector(".login-register");
+  const logout = document.querySelector("#logout");
+  if (isLoggedIn()) {
+    loginRegister.classList.add("hide");
+    logout.classList.remove("hide");
+    // fetchUserData();
+    // displayUserName();
+  } else {
+    loginRegister.classList.remove("hide");
+    logout.classList.add("hide");
+  }
+
+  logout.addEventListener("click", handleLogout);
+}
+
+function handleLogout() {
+  localStorage.removeItem("accessToken");
+  window.location.href = "register.html";
+}
+
+// async function fetchUserData() {
+//   try {
+//     const apiKey = localStorage.getItem("accessToken")
+//     const response = await fetch(`${api}/users`, {
+//       method: "GET",
+//       headers: {
+//         Authorization: `Bearer ${apiKey}`
+//       },
+//     });
+
+//     console.log("response of fetch user data", response);
+//     if (response.ok) {
+//       const data = await response.json();
+//       console.log("signup users data", data);
+//       // displayUserName(data);
+//     }
+//   } catch (error) {
+//     console.error("Error: ", error.message);
+//   }
+// }
+
+// function displayUserName(userData) {
+//   const userName = document.querySelector(".user-name");
+//   userName.textContent = userData.first_name;
+// }
+
 // Display products based on the provided array of products
+
 function displayProducts(products) {
+  // console.log(products)
   let html = "";
 
   for (const product of products) {
     html += `
       <div class="col-lg-4 col-md-4 col-sm-6 mb-4" data-id='${product.id}'>
-        <div class="box" onclick='openProductPage(${JSON.stringify(
-          product.id
-        )})' >
-          <div class='product-img'>
+        <div class="box">
+          <div class='product-img' onclick='openProductPage(${JSON.stringify(
+            product.id
+          )})'>
             <img src='${product.image_url}' alt=''>
           </div>
           <div class="product-header">
@@ -30,7 +96,11 @@ function displayProducts(products) {
           <div class="product-footer">
             <div class="product-price">
               <p>${product.price}$</p>
-              <i class="fa-solid fa-cart-shopping"></i>
+              <a href='#' class='add-to-cart-button' onclick='addToCart(${JSON.stringify(
+                product.id
+              )})'>
+                <i class="fa-solid fa-cart-shopping"></i>
+              </a>
             </div>
           </div>
         </div>
@@ -44,22 +114,27 @@ function openProductPage(productId) {
   window.location.href = `single_product.html?id=${productId}`;
 }
 
-async function filterProducts(valueAttribute) {
-  const apiData = await fetchData();
-  if (valueAttribute === "all") {
-    // Show all products
-    filteredProducts = apiData.slice(0, 6);
-  } else {
-    // Filter products based on category
-    filteredProducts = apiData
-      .filter(
-        (product) =>
-          product.category.toLowerCase() === valueAttribute.toLowerCase()
-      )
-      .slice(0, 6);
-  }
-  displayProducts(filteredProducts);
-}
+// async function filterProducts(valueAttribute) {
+//   try {
+//     const apiData = await fetchData();
+//     if (valueAttribute === "all") {
+//       // Show all products
+//       filteredProducts = apiData.slice(0, 6);
+//     } else {
+//       // Filter products based on category
+//       filteredProducts = apiData
+//         .filter(
+//           (product) =>
+//             product.category &&
+//             product.category.toLowerCase() === valueAttribute.toLowerCase()
+//         )
+//         .slice(0, 6);
+//     }
+//     displayProducts(filteredProducts);
+//   } catch (error) {
+//     console.error("Error filtering products:", error);
+//   }
+// }
 
 // Event listener for category filtering
 categories.forEach((category) => {
@@ -75,41 +150,38 @@ categories.forEach((category) => {
   });
 });
 
-// Initial display of products
-async function displayData() {
-  await filterProducts("all");
+// // Initial display of products
+// async function displayData() {
+//   // await filterProducts("all");
+// }
+
+// add to cart
+async function addToCart(productId) {
+  console.log(productId);
+
+  if (isLoggedIn()) {
+    try {
+      const accessToken = localStorage.getItem("accessToken");
+      const response = await fetch(`${api}/cart`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${accessToken}`,
+        },
+        body: JSON.stringify({
+          product_id: productId,
+          quantity: 2,
+        }),
+      });
+      console.log(response);
+    } catch (error) {
+      console.error("Error: ", error.message);
+    }
+  }
 }
 
-displayData();
-
-// async function checkLoginStatus() {
-//   try {
-//     const response = await fetch(`${api}/authenticate`, {
-//       // method: "POST",
-//       method: "GET",
-//       headers: {
-//         "Content-Type": "application/json",
-//         Authorization: "Bearer MY-API-KEY",
-//       },
-//       // body: JSON.stringify({'message': 'User login successful'
-//     });
-//     console.log(response);
-//   } catch (error) {
-//     console.error("Checking login status.", error);
-//   }
-// }
-
-// function checkLoginStatus() {
-//   const queryString = window.location.search;
-//   console.log(queryString);
-//   const urlParams = new URLSearchParams(queryString);
-//   console.log(urlParams);
-//   const loginState = urlParams.get("loginState");
-//   console.log(loginState);
-
-//   if (loginState){
-//     document.querySelector(".login-register").style.display='none'
-//   }
-// }
-
-// window.addEventListener("load", checkLoginStatus);
+document.addEventListener("DOMContentLoaded", () => {
+  updateHeaderLinks();
+  // displayData();
+  fetchData();
+});

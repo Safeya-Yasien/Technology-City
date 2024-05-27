@@ -1,6 +1,8 @@
+// const api = "http://127.0.0.1:5000/api/authenticate";
+const api = "http://196.218.124.110:5000/api/authenticate";
+
 const loginForm = document.querySelector(".login form");
 const message = document.querySelector(".message");
-const api = "http://127.0.0.1:5000/api/authenticate";
 
 loginForm.addEventListener("submit", async function (event) {
   event.preventDefault();
@@ -31,38 +33,24 @@ loginForm.addEventListener("submit", async function (event) {
       body: JSON.stringify(responseBody),
     });
 
-    console.log(response)
+    console.log(response);
     if (response.ok) {
       const responseData = await response.json();
-      console.log(responseData)
+      saveToLocalStorage(responseData);
       redirectToHome();
     } else {
-      console.error("Login failed:", responseData.message);
+      console.error("Login failed:");
     }
   } catch (error) {
-    console.error("Login Faild");
+    console.error("Login Faild", error.message);
   }
 });
 
+function saveToLocalStorage(userData) {
+  localStorage.setItem("accessToken", userData.token);
+}
+
 // redirect to home page
 function redirectToHome() {
-  console.log("go to home")
-  // window.location.href = "index.html";
-  // document.querySelector(".login-register").classList.add("hide")
-
-  // setTimeout(() => {
-  //   window.location.href = "index.html";
-  // }, 2000);
-  // setTimeout(() => {
-  //   window.location.href = `index.html?loginState=${token}`;
-  // }, 2000);
   window.location.href = "index.html";
-
-  setTimeout(() => {
-    const loginRegisterIcons = document.querySelector(".login-register");
-    if (loginRegisterIcons) {
-      loginRegisterIcons.style.display = "none";
-    }
-  }, 500);
-
 }

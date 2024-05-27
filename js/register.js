@@ -1,4 +1,5 @@
-const api = "http://127.0.0.1:5000/api/signup";
+// const api = "http://127.0.0.1:5000/api/signup";
+const api = "http://196.218.124.110:5000/api/signup";
 
 const signUpForm = document.querySelector(".register form");
 
