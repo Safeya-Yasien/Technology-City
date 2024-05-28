@@ -25,6 +25,7 @@ async function displayAllProducts() {
                 <p>${product.price}$</p>
                 <p><i class="fa-solid fa-cart-shopping"></i></p>
               </div>
+
             </div>
           </div>
         </div>

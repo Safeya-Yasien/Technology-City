@@ -1,11 +1,9 @@
 const productsAddProductButton = document.querySelector(
   "#products-add-product"
 );
-// const deleteAllBtn = document.querySelector("#delete-all");
 
 // events
 productsAddProductButton.addEventListener("click", redirectToAddProductPage);
-// deleteAllBtn.addEventListener("click", deleteAllProducts);
 
 // fetch product form api
 async function fetchProducts() {

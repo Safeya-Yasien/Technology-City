@@ -1,4 +1,3 @@
-// const api = "http://127.0.0.1:5000/api";
 const api = "http://196.218.124.110:5000/api";
 
 const dropDown = document.querySelectorAll(".dropdown");

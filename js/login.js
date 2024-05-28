@@ -1,4 +1,3 @@
-// const api = "http://127.0.0.1:5000/api/authenticate";
 const api = "http://196.218.124.110:5000/api/authenticate";
 
 const loginForm = document.querySelector(".login form");

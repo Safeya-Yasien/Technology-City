@@ -1,4 +1,4 @@
-const api = "http://127.0.0.1:5000/api/products";
+const api = "http://196.218.124.110:5000/api/products";
 
 async function fetchData() {
   const response = await fetch(api);
